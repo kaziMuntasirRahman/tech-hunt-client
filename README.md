@@ -30,7 +30,6 @@
 - React
 - TailwindCSS
 - DaisyUI
-- ShadCN/UI for UI components
 - TanStack Query for data fetching
 - React Helmet Async for SEO optimization
 - Firebase for authentication
@@ -50,7 +49,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/kazimuntasirrahman/tech-hunt.git
+git clone https://github.com/kaziMuntasirRahman/tech-hunt-client.git
 ```
 
 2. Navigate to the project directory:

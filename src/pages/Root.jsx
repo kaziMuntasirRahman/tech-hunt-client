@@ -1,12 +1,12 @@
-import { Helmet } from "react-helmet-async";
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Root = () => {
   return (
-    <div className="text-6xl">
-      <Helmet>
-        <title>this is title</title>
-      </Helmet>
+    <div className="max-w-7xl !mx-auto border border-slate-200 min-h-screen">
+      <Navbar />
       Tech Hunt Initiated.....
+      {/* <Outlet /> */}
     </div>
   );
 };
