@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         setUser(currentUser)
         console.log(currentUser)
-        console.log('User is present as: ', currentUser?.displayName.toUpperCase())
+        console.log('User is present as: ', currentUser?.displayName?.toUpperCase())
         setLoading(false)
       } else {
         setLoading(false)
@@ -79,9 +79,7 @@ const AuthProvider = ({ children }) => {
     try {
       setLoading(true)
       await signOut(auth)
-        .then(() => {
-          return true;
-        })
+      return true;
     }
     catch {
       (err) => {
