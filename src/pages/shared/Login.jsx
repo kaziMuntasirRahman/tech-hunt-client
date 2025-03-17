@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = ({ setRegisterModal, closeModal }) => {
   const { loading, logIn, googleSignIn } = useContext(AuthContext)
@@ -20,7 +20,7 @@ const Login = ({ setRegisterModal, closeModal }) => {
           title: "You've Successfully Logged In.",
           showConfirmButton: false,
           footer: `Welcome Back ${response.displayName.toUpperCase()}`,
-          timer: 1500
+          timer: 2000
         });
       } else {
         Swal.fire({
@@ -50,7 +50,7 @@ const Login = ({ setRegisterModal, closeModal }) => {
           title: "You've successfully logged in.",
           showConfirmButton: false,
           footer: "Welcome",
-          timer: 1500
+          timer: 2000
         });
       }
     } catch (err) {

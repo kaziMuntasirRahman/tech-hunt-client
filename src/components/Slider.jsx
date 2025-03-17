@@ -3,13 +3,13 @@ import { Carousel } from "react-responsive-carousel";
 
 const Slider = () => {
     return (
-        <div className="my-8">
+        <div className="my-10">
             <Carousel showArrows={true} axis="horizontal" centerMode={false} infiniteLoop={true} autoPlay={true} interval={3000} swipeable={true} >
                 {
-                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, index) =>
-                        <div>
-                            <img src={`/assets/images/banner slider/${index + 1}.png`} />
-                            <p className="legend">Legend {index + 1}</p>
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) =>
+                        <div key={item}>
+                            <img src={`/assets/images/banner slider/${item}.png`} />
+                            <p className="legend">Legend {item}</p>
                         </div>
                     )
                 }

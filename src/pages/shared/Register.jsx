@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
-import '../../../src/index.css'
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import '../../../src/index.css';
+import { AuthContext } from "../../providers/AuthProvider";
 
 const img_hosting_url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`
 
@@ -43,7 +43,7 @@ const Register = ({ setRegisterModal, closeModal }) => {
           title: "You've Successfully Registered.",
           showConfirmButton: false,
           footer: `Welcome ${res.displayName}`,
-          timer: 1500
+          timer: 2000
         });
       } else {
         Swal.fire({
@@ -73,7 +73,7 @@ const Register = ({ setRegisterModal, closeModal }) => {
           title: "You've successfully logged in.",
           showConfirmButton: false,
           footer: "Welcome",
-          timer: 1500
+          timer: 2000
         });
       }
     } catch (err) {
