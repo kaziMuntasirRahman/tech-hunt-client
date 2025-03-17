@@ -1,0 +1,506 @@
+[
+    {
+        "name": "AI Code Assistant",
+        "image": "https://picsum.photos/500/600",
+        "description": "An AI-powered tool to help developers write code faster and more efficiently.",
+        "productOwner": {
+            "name": "John Doe",
+            "image": "https://picsum.photos/500",
+            "email": "john.doe@example.com"
+        },
+        "tags": ["AI Tools", "Software", "Developer Tools"],
+        "externalLinks": ["https://aicodeassistant.com"],
+        "isFeatured": false,
+        "upvotes": ["user1@example.com", "user2@example.com", "user3@example.com", "user4@example.com", "user5@example.com", "user6@example.com", "user7@example.com", "user8@example.com", "user9@example.com", "user10@example.com", "user11@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Alice",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "This tool has significantly improved my coding speed!",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Bob",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Great for debugging and refactoring code.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Charlie",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Saves me hours of work every week!",
+                "rating": 5
+            },
+            {
+                "reviewerName": "David",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The AI suggestions are spot-on most of the time.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Eve",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "A must-have for any developer.",
+                "rating": 5
+            }
+        ],
+        "status": "approved"
+    },
+    {
+        "name": "EduLearn Platform",
+        "image": "https://picsum.photos/500/600",
+        "description": "An online learning platform offering courses in various tech fields.",
+        "productOwner": {
+            "name": "Jane Smith",
+            "image": "https://picsum.photos/500",
+            "email": "jane.smith@example.com"
+        },
+        "tags": ["Learning & Education", "Web Apps", "Online Courses"],
+        "externalLinks": ["https://edulearn.com"],
+        "isFeatured": false,
+        "upvotes": ["user12@example.com", "user13@example.com", "user14@example.com", "user15@example.com", "user16@example.com", "user17@example.com", "user18@example.com", "user19@example.com", "user20@example.com", "user21@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Frank",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Great platform for learning new skills!",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Grace",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The courses are well-structured and easy to follow.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Hank",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "I love the interactive quizzes!",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Ivy",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The instructors are very knowledgeable.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Jack",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly recommend this platform for beginners.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Karen",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The community support is amazing.",
+                "rating": 5
+            }
+        ],
+        "status": "approved"
+    },
+    {
+        "name": "Mobile Game: Space Adventure",
+        "image": "https://picsum.photos/500/600",
+        "description": "An exciting mobile game set in outer space with stunning graphics.",
+        "productOwner": {
+            "name": "Mike Johnson",
+            "image": "https://picsum.photos/500",
+            "email": "mike.johnson@example.com"
+        },
+        "tags": ["Games", "Mobile Apps", "Entertainment"],
+        "externalLinks": ["https://spaceadventuregame.com"],
+        "isFeatured": false,
+        "upvotes": ["user22@example.com", "user23@example.com", "user24@example.com", "user25@example.com", "user26@example.com", "user27@example.com", "user28@example.com", "user29@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Liam",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The graphics are out of this world!",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Mia",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Addictive gameplay and fun challenges.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Noah",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "A great way to pass the time.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Olivia",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The storyline is engaging and immersive.",
+                "rating": 5
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "name": "Smart Home Hub",
+        "image": "https://picsum.photos/500/600",
+        "description": "A centralized hub to control all your smart home devices.",
+        "productOwner": {
+            "name": "Sarah Lee",
+            "image": "https://picsum.photos/500",
+            "email": "sarah.lee@example.com"
+        },
+        "tags": ["Hardware", "Emerging Technologies", "Home Automation"],
+        "externalLinks": ["https://smarthomehub.com"],
+        "isFeatured": false,
+        "upvotes": ["user30@example.com", "user31@example.com", "user32@example.com", "user33@example.com", "user34@example.com", "user35@example.com", "user36@example.com", "user37@example.com", "user38@example.com", "user39@example.com", "user40@example.com", "user41@example.com", "user42@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Pam",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Works seamlessly with all my devices!",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Quinn",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The setup process was a breeze.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Ryan",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly recommend for smart home enthusiasts.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Sara",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The app interface is user-friendly.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Tom",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Great value for the price.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Uma",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Makes my life so much easier.",
+                "rating": 5
+            }
+        ],
+        "status": "approved"
+    },
+    {
+        "name": "Open Source Chatbot",
+        "image": "https://picsum.photos/500/600",
+        "description": "An open-source chatbot framework for developers.",
+        "productOwner": {
+            "name": "Alex Brown",
+            "image": "https://picsum.photos/500",
+            "email": "alex.brown@example.com"
+        },
+        "tags": ["Open Source Projects", "AI Tools", "Chatbot Development"],
+        "externalLinks": ["https://opensourcechatbot.com"],
+        "isFeatured": false,
+        "upvotes": ["user43@example.com", "user44@example.com", "user45@example.com", "user46@example.com", "user47@example.com", "user48@example.com", "user49@example.com", "user50@example.com", "user51@example.com", "user52@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Victor",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "A fantastic tool for building chatbots.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Wendy",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The documentation is very thorough.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Xander",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Easy to integrate with existing systems.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Yara",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Great community support.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Zack",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly customizable and flexible.",
+                "rating": 5
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "name": "Cloud Storage Solution",
+        "image": "https://picsum.photos/500/600",
+        "description": "A secure and scalable cloud storage service for businesses.",
+        "productOwner": {
+            "name": "Emily Davis",
+            "image": "https://picsum.photos/500",
+            "email": "emily.davis@example.com"
+        },
+        "tags": ["Tech Services", "Web Apps", "Data Storage"],
+        "externalLinks": ["https://cloudstoragesolution.com"],
+        "isFeatured": false,
+        "upvotes": ["user53@example.com", "user54@example.com", "user55@example.com", "user56@example.com", "user57@example.com", "user58@example.com", "user59@example.com", "user60@example.com", "user61@example.com", "user62@example.com", "user63@example.com", "user64@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Anna",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Reliable and easy to use!",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Ben",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Great for storing large files securely.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Cara",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The pricing is very competitive.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Drew",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Excellent customer support.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Eli",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly recommend for businesses.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Faye",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The interface is intuitive and clean.",
+                "rating": 4
+            }
+        ],
+        "status": "approved"
+    },
+    {
+        "name": "VR Fitness App",
+        "image": "https://picsum.photos/500/600",
+        "description": "A virtual reality app that makes fitness fun and immersive.",
+        "productOwner": {
+            "name": "Chris Green",
+            "image": "https://picsum.photos/500",
+            "email": "chris.green@example.com"
+        },
+        "tags": ["Mobile Apps", "Emerging Technologies", "Fitness"],
+        "externalLinks": ["https://vrfitnessapp.com"],
+        "isFeatured": false,
+        "upvotes": ["user65@example.com", "user66@example.com", "user67@example.com", "user68@example.com", "user69@example.com", "user70@example.com", "user71@example.com", "user72@example.com", "user73@example.com", "user74@example.com", "user75@example.com", "user76@example.com", "user77@example.com", "user78@example.com", "user79@example.com", "user80@example.com", "user81@example.com", "user82@example.com", "user83@example.com", "user84@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Gina",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Makes working out so much fun!",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Hank",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The VR experience is incredible.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Ivy",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "A great way to stay motivated.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Jake",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The workouts are challenging but fun.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Kara",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly recommend for fitness enthusiasts.",
+                "rating": 5
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "name": "AI-Powered Analytics",
+        "image": "https://picsum.photos/500/600",
+        "description": "Advanced analytics tool powered by AI for data-driven decisions.",
+        "productOwner": {
+            "name": "Laura White",
+            "image": "https://picsum.photos/500",
+            "email": "laura.white@example.com"
+        },
+        "tags": ["AI Tools", "Tech Services", "Data Analysis"],
+        "externalLinks": ["https://aianalytics.com"],
+        "isFeatured": false,
+        "upvotes": ["user85@example.com", "user86@example.com", "user87@example.com", "user88@example.com", "user89@example.com", "user90@example.com", "user91@example.com", "user92@example.com", "user93@example.com", "user94@example.com", "user95@example.com", "user96@example.com", "user97@example.com", "user98@example.com", "user99@example.com", "user100@example.com", "user101@example.com", "user102@example.com", "user103@example.com", "user104@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Liam",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Incredible insights from my data!",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Mia",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The AI predictions are very accurate.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Noah",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "A must-have for data-driven businesses.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Olivia",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The dashboard is very user-friendly.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Pam",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly recommend for data analysis.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Quinn",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The support team is very responsive.",
+                "rating": 4
+            }
+        ],
+        "status": "approved"
+    },
+    {
+        "name": "Blockchain Wallet",
+        "image": "https://picsum.photos/500/600",
+        "description": "A secure and user-friendly wallet for blockchain transactions.",
+        "productOwner": {
+            "name": "Mark Taylor",
+            "image": "https://picsum.photos/500",
+            "email": "mark.taylor@example.com"
+        },
+        "tags": ["Emerging Technologies", "Web Apps", "Cryptocurrency"],
+        "externalLinks": ["https://blockchainwallet.com"],
+        "isFeatured": false,
+        "upvotes": ["user105@example.com", "user106@example.com", "user107@example.com", "user108@example.com", "user109@example.com", "user110@example.com", "user111@example.com", "user112@example.com", "user113@example.com", "user114@example.com", "user115@example.com", "user116@example.com", "user117@example.com", "user118@example.com", "user119@example.com", "user120@example.com", "user121@example.com", "user122@example.com", "user123@example.com", "user124@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Ryan",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Very secure and easy to use.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Sara",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Great for managing multiple cryptocurrencies.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Tom",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The interface is clean and intuitive.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Uma",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly recommend for crypto enthusiasts.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Victor",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The transaction fees are very low.",
+                "rating": 4
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "name": "AI Music Composer",
+        "image": "https://picsum.photos/500/600",
+        "description": "An AI tool that composes original music tracks based on user preferences.",
+        "productOwner": {
+            "name": "Olivia Harris",
+            "image": "https://picsum.photos/500",
+            "email": "olivia.harris@example.com"
+        },
+        "tags": ["AI Tools", "Software", "Music Creation"],
+        "externalLinks": ["https://aimusiccomposer.com"],
+        "isFeatured": false,
+        "upvotes": ["user125@example.com", "user126@example.com", "user127@example.com", "user128@example.com", "user129@example.com", "user130@example.com", "user131@example.com", "user132@example.com", "user133@example.com", "user134@example.com", "user135@example.com", "user136@example.com", "user137@example.com", "user138@example.com", "user139@example.com", "user140@example.com", "user141@example.com", "user142@example.com", "user143@example.com", "user144@example.com"],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Wendy",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Creates amazing music in seconds!",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Xander",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The AI-generated music is very creative.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Yara",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "A great tool for musicians and composers.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Zack",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Highly recommend for music production.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Anna",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The customization options are endless.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Ben",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The AI understands my preferences perfectly.",
+                "rating": 5
+            }
+        ],
+        "status": "approved"
+    }
+]

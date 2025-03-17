@@ -70,8 +70,8 @@ const Navbar = () => {
       <div className="ml-auto flex gap-8">
         <button
         onClick={() => document.getElementById('notification_modal').showModal()}
-        className="bg-white rounded-full p-2 border border-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-200 tooltip tooltip-left" data-tip="Notification">
-          <GoBell className="text-2xl" />
+        className="bg-white rounded-full p-3 border border-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-200 tooltip tooltip-left" data-tip="Notification">
+          <GoBell className="text-xl" />
         </button>
         {
           loading ?

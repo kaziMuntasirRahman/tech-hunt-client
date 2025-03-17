@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 const Slider = () => {
     return (
         <div className="my-10">
-            <Carousel showArrows={true} axis="horizontal" centerMode={false} infiniteLoop={true} autoPlay={true} interval={3000} swipeable={true} >
+            <Carousel showArrows={true} axis="horizontal" centerMode={false} infiniteLoop={true} autoPlay={true} interval={10000} swipeable={true} transitionTime={1500} >
                 {
                     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) =>
                         <div key={item}>

@@ -7,7 +7,7 @@ const Root = () => {
   return (
     <div className="max-w-7xl !mx-auto border border-slate-200 min-h-screen">
       <Navbar />
-      <ViewerNotice notify="Hey there! Please, complete your onboarding." button="Complete onboarding" />
+      {/* <ViewerNotice notify="Hey there! Please, complete your onboarding." button="Complete onboarding" /> */}
       <Outlet />
       <Footer />
     </div>
