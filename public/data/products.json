@@ -10,7 +10,7 @@
         },
         "tags": ["AI Tools", "Software", "Developer Tools"],
         "externalLinks": ["https://aicodeassistant.com"],
-        "isFeatured": false,
+        "isFeatured": true,
         "upvotes": ["user1@example.com", "user2@example.com", "user3@example.com", "user4@example.com", "user5@example.com", "user6@example.com", "user7@example.com", "user8@example.com", "user9@example.com", "user10@example.com", "user11@example.com"],
         "reports": [],
         "reviews": [
@@ -45,7 +45,10 @@
                 "rating": 5
             }
         ],
-        "status": "approved"
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-03-10T14:32:45.123Z"
+        }
     },
     {
         "name": "EduLearn Platform",
@@ -99,7 +102,10 @@
                 "rating": 5
             }
         ],
-        "status": "approved"
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-02-15T09:45:12.456Z"
+        }
     },
     {
         "name": "Mobile Game: Space Adventure",
@@ -112,7 +118,7 @@
         },
         "tags": ["Games", "Mobile Apps", "Entertainment"],
         "externalLinks": ["https://spaceadventuregame.com"],
-        "isFeatured": false,
+        "isFeatured": true,
         "upvotes": ["user22@example.com", "user23@example.com", "user24@example.com", "user25@example.com", "user26@example.com", "user27@example.com", "user28@example.com", "user29@example.com"],
         "reports": [],
         "reviews": [
@@ -141,7 +147,10 @@
                 "rating": 5
             }
         ],
-        "status": "pending"
+        "status": "pending",
+        "postedDate": {
+            "date": "2024-01-20T18:10:34.789Z"
+        }
     },
     {
         "name": "Smart Home Hub",
@@ -195,7 +204,10 @@
                 "rating": 5
             }
         ],
-        "status": "approved"
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-03-05T12:15:56.321Z"
+        }
     },
     {
         "name": "Open Source Chatbot",
@@ -208,7 +220,7 @@
         },
         "tags": ["Open Source Projects", "AI Tools", "Chatbot Development"],
         "externalLinks": ["https://opensourcechatbot.com"],
-        "isFeatured": false,
+        "isFeatured": true,
         "upvotes": ["user43@example.com", "user44@example.com", "user45@example.com", "user46@example.com", "user47@example.com", "user48@example.com", "user49@example.com", "user50@example.com", "user51@example.com", "user52@example.com"],
         "reports": [],
         "reviews": [
@@ -243,7 +255,10 @@
                 "rating": 5
             }
         ],
-        "status": "pending"
+        "status": "pending",
+        "postedDate": {
+            "date": "2024-02-28T07:22:11.654Z"
+        }
     },
     {
         "name": "Cloud Storage Solution",
@@ -297,7 +312,10 @@
                 "rating": 4
             }
         ],
-        "status": "approved"
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-01-10T16:45:23.987Z"
+        }
     },
     {
         "name": "VR Fitness App",
@@ -345,7 +363,10 @@
                 "rating": 5
             }
         ],
-        "status": "pending"
+        "status": "pending",
+        "postedDate": {
+            "date": "2024-02-10T10:30:45.678Z"
+        }
     },
     {
         "name": "AI-Powered Analytics",
@@ -399,7 +420,10 @@
                 "rating": 4
             }
         ],
-        "status": "approved"
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-01-25T08:12:34.567Z"
+        }
     },
     {
         "name": "Blockchain Wallet",
@@ -412,7 +436,7 @@
         },
         "tags": ["Emerging Technologies", "Web Apps", "Cryptocurrency"],
         "externalLinks": ["https://blockchainwallet.com"],
-        "isFeatured": false,
+        "isFeatured": true,
         "upvotes": ["user105@example.com", "user106@example.com", "user107@example.com", "user108@example.com", "user109@example.com", "user110@example.com", "user111@example.com", "user112@example.com", "user113@example.com", "user114@example.com", "user115@example.com", "user116@example.com", "user117@example.com", "user118@example.com", "user119@example.com", "user120@example.com", "user121@example.com", "user122@example.com", "user123@example.com", "user124@example.com"],
         "reports": [],
         "reviews": [
@@ -447,7 +471,10 @@
                 "rating": 4
             }
         ],
-        "status": "pending"
+        "status": "pending",
+        "postedDate": {
+            "date": "2024-02-20T14:55:43.210Z"
+        }
     },
     {
         "name": "AI Music Composer",
@@ -501,6 +528,9 @@
                 "rating": 5
             }
         ],
-        "status": "approved"
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-01-15T11:20:30.456Z"
+        }
     }
 ]

@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import { BsDot } from "react-icons/bs";
 import { FaRegComment } from "react-icons/fa";
 import { PiTriangle } from "react-icons/pi";
+import useProducts from "../hooks/useProducts";
 
 const TrendingProduct = () => {
+  const { products } = useProducts()
   const [sortedProducts, setSortedProducts] = useState([])
   // const [showAllProducts, setShowAllProducts]= useState(false)
+  // useEffect(() => {
+  //   fetch('/data/products.json')
+  //     .then(res => res.json())
+  //     .then(data => setSortedProducts(data.sort((a, b) => b.upvotes.length - a.upvotes.length)))
+  // }, [])
   useEffect(() => {
-    fetch('/data/products.json')
-      .then(res => res.json())
-      .then(data => setSortedProducts(data.sort((a, b) => b.upvotes.length - a.upvotes.length)))
-  }, [])
+    setSortedProducts(products.sort((a, b) => b.upvotes.length - a.upvotes.length))
+  }, [products])
 
   console.log(sortedProducts)
 
@@ -19,7 +24,7 @@ const TrendingProduct = () => {
       <h1 className="text-lg font-semibold hover:text-[#FF6154] transition-colors duration-300 ease-in-out cursor-pointer mb-4">Top Trending Products</h1>
       <div className="flex flex-col gap-1">
         {
-          sortedProducts.slice(0,6).map((product) => <Cart key={product.name} product={product} />)
+          sortedProducts.slice(0, 6).map((product) => <Cart key={product.name} product={product} />)
         }
       </div>
       <button className="btn rounded-full w-full">View All</button>

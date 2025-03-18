@@ -6,9 +6,11 @@ import Login from "../pages/shared/Login";
 import Register from "../pages/shared/Register";
 import { AuthContext } from "../providers/AuthProvider";
 import { GoBell } from "react-icons/go";
+import useGetStatus from "../hooks/useGetStatus";
 
 const Navbar = () => {
   const { user, loading, logOut } = useContext(AuthContext)
+  const { status } = useGetStatus()
   const [registerModal, setRegisterModal] = useState(true)
 
   const closeModal = () => {
@@ -69,8 +71,8 @@ const Navbar = () => {
       {/* navbar right */}
       <div className="ml-auto flex gap-8">
         <button
-        onClick={() => document.getElementById('notification_modal').showModal()}
-        className="bg-white rounded-full p-3 border border-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-200 tooltip tooltip-left" data-tip="Notification">
+          onClick={() => document.getElementById('notification_modal').showModal()}
+          className="bg-white rounded-full p-3 border border-gray-200 hover:border-gray-400 cursor-pointer transition-all duration-200 tooltip tooltip-left" data-tip="Notification">
           <GoBell className="text-xl" />
         </button>
         {
@@ -86,8 +88,9 @@ const Navbar = () => {
                     <img src={user?.photoURL} tabIndex={0} role="button" />
                   </div>
                 </div>
-                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                  <li><a className={`${loading && 'animate-pulse'} cursor-default font-semibold`}>{!loading ? user?.displayName.toUpperCase() : "Loading..."}</a></li>
+                <ul tabIndex={0} className="dropdown-content menu bg-slate-50 rounded-box z-1 w-52 p-2 shadow-sm">
+                  <li><a className={`${loading && 'animate-pulse'} cursor-default font-semibold`}>{!loading ? user?.displayName?.toUpperCase() : "Loading..."}</a></li>
+                  <li><a className={`${loading && 'animate-pulse'} cursor-default`}>{`Status: ${!loading ? status?.toUpperCase() : "Loading..."}`}</a></li>
                   <li><Link to='/dashboard/my-products'>My Products</Link></li>
                   <li><Link to='/dashboard'>Dashboard</Link></li>
                   <hr className="mx-3 my-2 text-gray-400" />

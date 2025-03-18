@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
 import Cart from "./Cart";
+import useProducts from "../hooks/useProducts";
 
 const FeaturedProducts = () => {
-  const [carts, setCarts] = useState([])
 
-  useEffect(() => {
-    fetch('/data/products.json')
-      .then(res => res.json())
-      .then(data => setCarts(data))
-  }, [])
+  const { products: carts = [] } = useProducts()
 
   return (
     <div className="flex flex-col gap-1">

@@ -5,10 +5,12 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Login = ({ setRegisterModal, closeModal }) => {
   const { loading, logIn, googleSignIn } = useContext(AuthContext)
   const [existingUser, setExistingUser] = useState({ email: "", password: "" })
+  const [loginLoading, setLoginLoading] = useState(false)
 
   const handleLogin = async (e) => {
+    setLoginLoading(true)
     e.preventDefault()
-    console.log(existingUser)
+    // console.log(existingUser)
     const { email, password } = existingUser
     try {
       const response = await logIn(email, password)
@@ -56,6 +58,7 @@ const Login = ({ setRegisterModal, closeModal }) => {
     } catch (err) {
       console.log(err.message)
     } finally {
+      setLoginLoading(true)
       closeModal()
       console.log("Finally block executed in the register component.")
     }
@@ -66,14 +69,14 @@ const Login = ({ setRegisterModal, closeModal }) => {
   return (
     <div className="card bg-base-100 shrink-0 py-6">
       {
-        loading ?
+        (loading || loginLoading) ?
           <div className="absolute left-0 top-0 !z-999 bg-slate-700/30 h-full w-full flex items-center justify-center">
             <span className="loader scale-200" ></span>
           </div>
           :
           <></>
       }
-      <h1 className="text-center text-3xl">{loading ? "Logging in..." : "Login"}</h1>
+      <h1 className="text-center text-3xl">{loginLoading ? "Logging in..." : "Login"}</h1>
       <div className="card-body">
         <form onSubmit={handleLogin} className="fieldset">
           <label className="fieldset-label">Email</label>

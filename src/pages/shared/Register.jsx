@@ -3,11 +3,14 @@ import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import '../../../src/index.css';
 import { AuthContext } from "../../providers/AuthProvider";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const img_hosting_url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`
 
 const Register = ({ setRegisterModal, closeModal }) => {
   const { createUser, loading, googleSignIn } = useContext(AuthContext)
+  const axiosPublic = useAxiosPublic()
+  const [registrationLoading, setRegistrationLoading] = useState(false)
 
   const [newUser, setNewUser] = useState({
     name: "", email: "", photo: null, password: ""
@@ -15,6 +18,7 @@ const Register = ({ setRegisterModal, closeModal }) => {
 
   const handleRegister = async (e) => {
     // console.log(newUser)
+    setRegistrationLoading(true)
     const { name, email, password } = newUser;
     e.preventDefault();
     try {
@@ -32,19 +36,25 @@ const Register = ({ setRegisterModal, closeModal }) => {
           console.log("Profile photo has successfully been uploaded.")
         }
       }
-
       // register user after image been uploaded
       const res = await createUser(name, email, imgURL, password)
       console.log(res)
       if (res.email) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "You've Successfully Registered.",
-          showConfirmButton: false,
-          footer: `Welcome ${res.displayName}`,
-          timer: 2000
-        });
+        const modifiedUser = { name: res.displayName, email: res.email, photoURL: res.photoURL }
+        console.log(modifiedUser)
+        const dbResponse = await axiosPublic.post('users', modifiedUser)
+        if (dbResponse.data.insertedId) {
+          console.log("User info added to database.")
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You've Successfully Registered.",
+            showConfirmButton: false,
+            footer: `Welcome ${res.displayName}`,
+            timer: 2000
+          });
+        }
+        console.log(dbResponse)
       } else {
         Swal.fire({
           icon: "error",
@@ -79,6 +89,7 @@ const Register = ({ setRegisterModal, closeModal }) => {
     } catch (err) {
       console.log(err.message)
     } finally {
+      setRegistrationLoading(false)
       closeModal()
       console.log("Finally block executed in the register component.")
     }
@@ -87,14 +98,14 @@ const Register = ({ setRegisterModal, closeModal }) => {
   return (
     <div className="card bg-base-100 w-full shrink-0 py-6">
       {
-        loading ?
+        (loading || registrationLoading) ?
           <div className="absolute left-0 top-0 !z-999 bg-slate-700/30 h-full w-full flex items-center justify-center">
             <span className="loader scale-200" ></span>
           </div>
           :
           <></>
       }
-      <h1 className="text-center text-3xl">{loading ? "Signing Up..." : "Sign Up"}</h1>
+      <h1 className="text-center text-3xl">{registrationLoading ? "Signing Up..." : "Sign Up"}</h1>
       <div className="card-body">
         <form onSubmit={handleRegister} className="fieldset">
           {/* name input field */}
