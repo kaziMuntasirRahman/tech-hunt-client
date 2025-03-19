@@ -58,7 +58,7 @@ const Login = ({ setRegisterModal, closeModal }) => {
     } catch (err) {
       console.log(err.message)
     } finally {
-      setLoginLoading(true)
+      setLoginLoading(false)
       closeModal()
       console.log("Finally block executed in the register component.")
     }
@@ -70,7 +70,7 @@ const Login = ({ setRegisterModal, closeModal }) => {
     <div className="card bg-base-100 shrink-0 py-6">
       {
         (loading || loginLoading) ?
-          <div className="absolute left-0 top-0 !z-999 bg-slate-700/30 h-full w-full flex items-center justify-center">
+          <div className="absolute left-0 top-0 z-[999] bg-slate-700/30 h-full w-full flex items-center justify-center">
             <span className="loader scale-200" ></span>
           </div>
           :

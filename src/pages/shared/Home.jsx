@@ -5,7 +5,7 @@ import TrendingProduct from "../../components/TrendingProduct";
 const Home = () => {
   return (
     <div>
-      {/* <Slider /> */}
+      <Slider />
       <div className="grid grid-cols-1 md:grid-cols-3 my-8 gap-5">
         <section className="col-span-2 bg-indigo-400/0">
           <FeaturedProducts />
