@@ -15,10 +15,11 @@ const TrendingProduct = () => {
   //     .then(data => setSortedProducts(data.sort((a, b) => b.upvotes.length - a.upvotes.length)))
   // }, [])
   useEffect(() => {
-    setSortedProducts(products.sort((a, b) => b.upvotes.length - a.upvotes.length))
+    const sorted = [...products].sort((a, b) => b.upvotes.length - a.upvotes.length)
+    setSortedProducts(sorted)
+    console.log(sorted)
   }, [products])
 
-  console.log(sortedProducts)
 
   return (
     <div className="flex flex-col gap-4">
@@ -43,8 +44,13 @@ const Cart = ({ product }) => {
         <img src="https://picsum.photos/500" className="size-5 rounded object-cover" />
         <Link to={`products/${_id}`} className="text-sm text-gray-500 cursor-pointer hover:text-[#FF6154] font-medium transition-colors duration-300">/{name}</Link>
       </div>
-      <h1 className="text-base font-medium text-gray-800 ">{description}</h1>
-      <section className="flex items-center gap-1.5 text-sm">
+      {
+        description.length > 250 ?
+          <p className="text-[#344054]">{description.slice(0, 250)}... <Link className="text-amber-700 hover:underline" to={`/products/${_id}`}>View More</Link></p>
+          :
+          <p className=" text-[#344054]">{description}</p>
+      }
+      <section className="flex items-center gap-1.5  text-sm">
         <PiTriangle className="border rounded font-bold" />
         <p className="font-semibold text-gray-700">Upvote ({upvotes.length})</p>
         <BsDot className="mx-1.5" />

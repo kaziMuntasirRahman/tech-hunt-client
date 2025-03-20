@@ -17,7 +17,7 @@ const useGetStatus = () => {
   })
 
   useEffect(() => {
-    console.log("Current user's Status:", status)
+    console.log("User Status:", status)
   }, [status])
 
 

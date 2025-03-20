@@ -44,6 +44,8 @@ const Register = ({ setRegisterModal, closeModal }) => {
         console.log(modifiedUser)
         const dbResponse = await axiosPublic.post('users', modifiedUser)
         if (dbResponse.data.insertedId) {
+          const audio = new Audio('/assets/sound/success-1.mp3')
+          audio.play()
           console.log("User info added to database.")
           Swal.fire({
             position: "center",

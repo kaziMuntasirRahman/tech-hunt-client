@@ -16,6 +16,8 @@ const Login = ({ setRegisterModal, closeModal }) => {
       const response = await logIn(email, password)
       console.log(response)
       if (response.email) {
+        const audio = new Audio('/assets/sound/success-1.mp3')
+        audio.play()
         Swal.fire({
           position: "center",
           icon: "success",
@@ -36,6 +38,7 @@ const Login = ({ setRegisterModal, closeModal }) => {
     } catch (err) {
       console.log(err)
     } finally {
+      setLoginLoading(false)
       e.target.reset()
       closeModal();
       console.log("finally block in the login component executed...")
@@ -46,6 +49,8 @@ const Login = ({ setRegisterModal, closeModal }) => {
     try {
       const response = await googleSignIn()
       if (response?.email) {
+        const audio = new Audio('/assets/sound/success-1.mp3')
+        audio.play()
         Swal.fire({
           position: "center",
           icon: "success",

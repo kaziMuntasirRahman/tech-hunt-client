@@ -64,16 +64,20 @@ const Cart = ({ cart, index }) => {
 
   return (
     <div className="p-4 flex items-center gap-4 rounded-2xl bg-white hover:bg-slate-50 transition-all ease-in">
-      <div className="size-12 object-cover rounded-xl skeleton">
-        <img src={image} className="h-full w-full object-cover rounded-xl z-10" />
+      <div className="size-12 shrink-0 object-cover rounded-xl skeleton">
+        <img src={image} className="h-full w-full shrink-0 object-cover rounded-xl z-10" />
       </div>
       {/* description section */}
       <section className="flex flex-col gap-1">
-        <Link to={`products/${_id}`} className="text-[#051431] font-semibold">
+        <Link to={`/products/${_id}`} className="text-[#051431] font-semibold">
           {index + 1}.&nbsp;<span className="hover:text-[#FF6154] transition-all ease-in-out cursor-pointer">{name}</span>
         </Link>
-
-        <p className="text-[#344054]">{description}</p>
+        {
+          description.length > 250 ?
+            <p className="text-[#344054]">{description.slice(0, 250)}... <Link className="text-amber-700 hover:underline"  to={`/products/${_id}`}>View More</Link></p>
+            :
+            <p className="text-[#344054]">{description}</p>
+        }
         <div id="tags" className="flex items-center gap-2">
           <BsTags />
           <p className="hover:underline cursor-pointer">{tags[0]}</p>
@@ -84,19 +88,19 @@ const Cart = ({ cart, index }) => {
         </div>
       </section>
       {/* comment button */}
-      <div className="ml-auto size-[52px] rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
+      <Link to={`/products/${_id}#public-review`} className="ml-auto size-[52px] min-w-[52] shrink-0 rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
         <FaRegComment />
         <p>{reviews.length}</p>
-      </div>
+      </Link>
       {/* Upvote button */}
       {
         isUpvoted ?
-          <div onClick={handleUpvotes} className="size-[52px] rounded-xl text-[#FF6154] border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
+          <div onClick={handleUpvotes} className="size-[52px] min-w-[52] shrink-0 rounded-xl text-[#FF6154] border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
             <PiTriangleFill />
             <p>{upvoteCount}</p>
           </div>
           :
-          <div onClick={handleUpvotes} className="size-[52px] rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
+          <div onClick={handleUpvotes} className="size-[52px] min-w-[52] shrink-0 rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
             <PiTriangle />
             <p>{upvoteCount}</p>
           </div>
