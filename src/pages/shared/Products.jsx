@@ -26,19 +26,20 @@ const ProductCart = ({ product }) => {
   const { _id, name, description, reviews, upvotes, tags, productOwner } = product;
   const [averageRating, setAverageRating] = useState(0)
 
-  useEffect(()=>{
-    let totalCount = reviews.reduce((total, review)=>total+review.rating, 0)
-    setAverageRating((totalCount/reviews.length).toFixed(1))
+  useEffect(() => {
+    let reviewsLength = reviews.length;
+    let totalCount = reviews.reduce((total, review) => total + review.rating, 0)
+    setAverageRating((totalCount / reviewsLength).toFixed(1))
   }, [reviews])
 
   return (
     <Link to={`/products/${_id}`} className="flex flex-col gap-3 p-6 border-b border-slate-100 rounded-2xl hover:bg-gray-100 transition-all ease-in-out group">
-      <h1 className="text-2xl font-medium mb-6 group-hover:text-amber-700">{name}</h1>
-      <div className="flex items-center gap-2.5 mb-5">
+      <h1 className="text-2xl font-medium mb-4 group-hover:text-amber-700">{name}</h1>
+      <div className="flex items-center gap-2.5 mb-2">
         <img className="size-12 rounded-full object-cover" src={productOwner.image} alt="" />
         <p className="text-lg font-semibold hover:underline cursor-pointer tooltip" data-tip="Product Owner">{productOwner.name}</p>
       </div>
-      <section className="flex items-center justify-between mb-3">
+      <section className="flex items-center justify-between mb-2">
         <div id="tags" className="flex items-center gap-2">
           <BsTags />
           <p className="hover:underline cursor-pointer">{tags[0]}</p>
@@ -49,10 +50,11 @@ const ProductCart = ({ product }) => {
         </div>
         <div className="flex items-center gap-6">
           <div className="border border-gray-100 rounded-lg p-1 px-2 flex items-center gap-2">
-            <DisplayRating rating={4.5} /> <p>{`${averageRating} (${reviews.length})`}</p>
+            <DisplayRating rating={reviews.length > 0 ? Math.round(averageRating) : 0} />
+              <p>{`${reviews.length > 0 ? averageRating : 0} (${reviews.length})`}</p>
           </div>
           <div className="border bg-amber-300 border-gray-100 rounded-lg p-1 px-2 flex items-center gap-2">
-            <FiTriangle /> <p>{upvotes.length} upvotes</p>
+            <FiTriangle /> <p>{upvotes?.length} upvotes</p>
           </div>
         </div>
       </section>

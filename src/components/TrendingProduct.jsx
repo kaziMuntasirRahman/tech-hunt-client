@@ -15,9 +15,11 @@ const TrendingProduct = () => {
   //     .then(data => setSortedProducts(data.sort((a, b) => b.upvotes.length - a.upvotes.length)))
   // }, [])
   useEffect(() => {
-    const sorted = [...products].sort((a, b) => b.upvotes.length - a.upvotes.length)
-    setSortedProducts(sorted)
-    console.log(sorted)
+    if (products) {
+      const sorted = [...products].sort((a, b) => (b.upvotes.length) - (a.upvotes.length))
+      setSortedProducts(sorted)
+      // console.log(sorted)
+    }
   }, [products])
 
 
@@ -26,7 +28,7 @@ const TrendingProduct = () => {
       <h1 className="text-lg font-semibold hover:text-[#FF6154] transition-colors duration-300 ease-in-out cursor-pointer mb-4">Top Trending Products</h1>
       <div className="flex flex-col gap-1">
         {
-          sortedProducts.slice(0, 6).map((product) => <Cart key={product.name} product={product} />)
+          sortedProducts.slice(0, 5).map((product) => <Cart key={product.name} product={product} />)
         }
       </div>
       <button className="btn rounded-full w-full">View All</button>
@@ -45,17 +47,17 @@ const Cart = ({ product }) => {
         <Link to={`products/${_id}`} className="text-sm text-gray-500 cursor-pointer hover:text-[#FF6154] font-medium transition-colors duration-300">/{name}</Link>
       </div>
       {
-        description.length > 250 ?
-          <p className="text-[#344054]">{description.slice(0, 250)}... <Link className="text-amber-700 hover:underline" to={`/products/${_id}`}>View More</Link></p>
+        description.length > 140 ?
+          <p className="text-[#344054]">{description.slice(0, 140)}... <Link className="text-amber-700 hover:underline" to={`/products/${_id}`}>View More</Link></p>
           :
           <p className=" text-[#344054]">{description}</p>
       }
       <section className="flex items-center gap-1.5  text-sm">
         <PiTriangle className="border rounded font-bold" />
-        <p className="font-semibold text-gray-700">Upvote ({upvotes.length})</p>
+        <p className="font-semibold text-gray-700">Upvote ({upvotes?.length})</p>
         <BsDot className="mx-1.5" />
         <FaRegComment />
-        <p className="font-semibold text-gray-700">{reviews.length}</p>
+        <p className="font-semibold text-gray-700">{reviews?.length || 0}</p>
       </section>
     </div>
   )

@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase";
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext(null)
 
@@ -74,6 +75,16 @@ const AuthProvider = ({ children }) => {
     }
   }
 
+  const updateUserInfo = async (name, photo) => {
+    try {
+      setLoading(true)
+      await updateProfile(user, { displayName: name, photoURL: photo })
+      return true;
+    } catch (err) {
+      return console.log(err)
+    }
+  }
+
 
   const logOut = async () => {
     try {
@@ -81,16 +92,42 @@ const AuthProvider = ({ children }) => {
       await signOut(auth)
       return true;
     }
-    catch {
-      (err) => {
-        return err
-      }
+    catch (err) {
+      return err
     } finally {
       setLoading(false)
 
     }
   }
 
+
+  const handleLogout = async () => {
+    try {
+      const response = await logOut()
+      if (response) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You've successfully logged out.",
+          showConfirmButton: false,
+          footer: "See You Later!",
+          timer: 2000
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Sorry! Failed to Logout.",
+        showConfirmButton: false,
+        footer: "Try Later!",
+        timer: 2000
+      });
+      console.log(error)
+    } finally {
+      console.log('...loggedout')
+    }
+  }
 
   const authInfo = {
     user,
@@ -99,7 +136,9 @@ const AuthProvider = ({ children }) => {
     logIn,
     createUser,
     googleSignIn,
-    logOut
+    updateUserInfo,
+    logOut,
+    handleLogout
   }
   return (
     <AuthContext.Provider value={authInfo}>

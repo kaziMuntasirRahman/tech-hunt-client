@@ -8,10 +8,28 @@
             "image": "https://picsum.photos/500",
             "email": "john.doe@example.com"
         },
-        "tags": ["AI Tools", "Software", "Developer Tools"],
-        "externalLinks": ["https://aicodeassistant.com"],
+        "tags": [
+            "AI Tools",
+            "Software",
+            "Developer Tools"
+        ],
+        "externalLinks": [
+            "https://aicodeassistant.com"
+        ],
         "isFeatured": true,
-        "upvotes": ["user1@example.com", "user2@example.com", "user3@example.com", "user4@example.com", "user5@example.com", "user6@example.com", "user7@example.com", "user8@example.com", "user9@example.com", "user10@example.com", "user11@example.com"],
+        "upvotes": [
+            "user1@example.com",
+            "user2@example.com",
+            "user3@example.com",
+            "user4@example.com",
+            "user5@example.com",
+            "user6@example.com",
+            "user7@example.com",
+            "user8@example.com",
+            "user9@example.com",
+            "user10@example.com",
+            "user11@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -59,10 +77,27 @@
             "image": "https://picsum.photos/500",
             "email": "jane.smith@example.com"
         },
-        "tags": ["Learning & Education", "Web Apps", "Online Courses"],
-        "externalLinks": ["https://edulearn.com"],
+        "tags": [
+            "Learning & Education",
+            "Web Apps",
+            "Online Courses"
+        ],
+        "externalLinks": [
+            "https://edulearn.com"
+        ],
         "isFeatured": false,
-        "upvotes": ["user12@example.com", "user13@example.com", "user14@example.com", "user15@example.com", "user16@example.com", "user17@example.com", "user18@example.com", "user19@example.com", "user20@example.com", "user21@example.com"],
+        "upvotes": [
+            "user12@example.com",
+            "user13@example.com",
+            "user14@example.com",
+            "user15@example.com",
+            "user16@example.com",
+            "user17@example.com",
+            "user18@example.com",
+            "user19@example.com",
+            "user20@example.com",
+            "user21@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -116,10 +151,25 @@
             "image": "https://picsum.photos/500",
             "email": "mike.johnson@example.com"
         },
-        "tags": ["Games", "Mobile Apps", "Entertainment"],
-        "externalLinks": ["https://spaceadventuregame.com"],
+        "tags": [
+            "Games",
+            "Mobile Apps",
+            "Entertainment"
+        ],
+        "externalLinks": [
+            "https://spaceadventuregame.com"
+        ],
         "isFeatured": true,
-        "upvotes": ["user22@example.com", "user23@example.com", "user24@example.com", "user25@example.com", "user26@example.com", "user27@example.com", "user28@example.com", "user29@example.com"],
+        "upvotes": [
+            "user22@example.com",
+            "user23@example.com",
+            "user24@example.com",
+            "user25@example.com",
+            "user26@example.com",
+            "user27@example.com",
+            "user28@example.com",
+            "user29@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -161,10 +211,30 @@
             "image": "https://picsum.photos/500",
             "email": "sarah.lee@example.com"
         },
-        "tags": ["Hardware", "Emerging Technologies", "Home Automation"],
-        "externalLinks": ["https://smarthomehub.com"],
+        "tags": [
+            "Hardware",
+            "Emerging Technologies",
+            "Home Automation"
+        ],
+        "externalLinks": [
+            "https://smarthomehub.com"
+        ],
         "isFeatured": false,
-        "upvotes": ["user30@example.com", "user31@example.com", "user32@example.com", "user33@example.com", "user34@example.com", "user35@example.com", "user36@example.com", "user37@example.com", "user38@example.com", "user39@example.com", "user40@example.com", "user41@example.com", "user42@example.com"],
+        "upvotes": [
+            "user30@example.com",
+            "user31@example.com",
+            "user32@example.com",
+            "user33@example.com",
+            "user34@example.com",
+            "user35@example.com",
+            "user36@example.com",
+            "user37@example.com",
+            "user38@example.com",
+            "user39@example.com",
+            "user40@example.com",
+            "user41@example.com",
+            "user42@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -218,10 +288,27 @@
             "image": "https://picsum.photos/500",
             "email": "alex.brown@example.com"
         },
-        "tags": ["Open Source Projects", "AI Tools", "Chatbot Development"],
-        "externalLinks": ["https://opensourcechatbot.com"],
+        "tags": [
+            "Open Source Projects",
+            "AI Tools",
+            "Chatbot Development"
+        ],
+        "externalLinks": [
+            "https://opensourcechatbot.com"
+        ],
         "isFeatured": true,
-        "upvotes": ["user43@example.com", "user44@example.com", "user45@example.com", "user46@example.com", "user47@example.com", "user48@example.com", "user49@example.com", "user50@example.com", "user51@example.com", "user52@example.com"],
+        "upvotes": [
+            "user43@example.com",
+            "user44@example.com",
+            "user45@example.com",
+            "user46@example.com",
+            "user47@example.com",
+            "user48@example.com",
+            "user49@example.com",
+            "user50@example.com",
+            "user51@example.com",
+            "user52@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -269,10 +356,29 @@
             "image": "https://picsum.photos/500",
             "email": "emily.davis@example.com"
         },
-        "tags": ["Tech Services", "Web Apps", "Data Storage"],
-        "externalLinks": ["https://cloudstoragesolution.com"],
+        "tags": [
+            "Tech Services",
+            "Web Apps",
+            "Data Storage"
+        ],
+        "externalLinks": [
+            "https://cloudstoragesolution.com"
+        ],
         "isFeatured": false,
-        "upvotes": ["user53@example.com", "user54@example.com", "user55@example.com", "user56@example.com", "user57@example.com", "user58@example.com", "user59@example.com", "user60@example.com", "user61@example.com", "user62@example.com", "user63@example.com", "user64@example.com"],
+        "upvotes": [
+            "user53@example.com",
+            "user54@example.com",
+            "user55@example.com",
+            "user56@example.com",
+            "user57@example.com",
+            "user58@example.com",
+            "user59@example.com",
+            "user60@example.com",
+            "user61@example.com",
+            "user62@example.com",
+            "user63@example.com",
+            "user64@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -326,10 +432,37 @@
             "image": "https://picsum.photos/500",
             "email": "chris.green@example.com"
         },
-        "tags": ["Mobile Apps", "Emerging Technologies", "Fitness"],
-        "externalLinks": ["https://vrfitnessapp.com"],
+        "tags": [
+            "Mobile Apps",
+            "Emerging Technologies",
+            "Fitness"
+        ],
+        "externalLinks": [
+            "https://vrfitnessapp.com"
+        ],
         "isFeatured": false,
-        "upvotes": ["user65@example.com", "user66@example.com", "user67@example.com", "user68@example.com", "user69@example.com", "user70@example.com", "user71@example.com", "user72@example.com", "user73@example.com", "user74@example.com", "user75@example.com", "user76@example.com", "user77@example.com", "user78@example.com", "user79@example.com", "user80@example.com", "user81@example.com", "user82@example.com", "user83@example.com", "user84@example.com"],
+        "upvotes": [
+            "user65@example.com",
+            "user66@example.com",
+            "user67@example.com",
+            "user68@example.com",
+            "user69@example.com",
+            "user70@example.com",
+            "user71@example.com",
+            "user72@example.com",
+            "user73@example.com",
+            "user74@example.com",
+            "user75@example.com",
+            "user76@example.com",
+            "user77@example.com",
+            "user78@example.com",
+            "user79@example.com",
+            "user80@example.com",
+            "user81@example.com",
+            "user82@example.com",
+            "user83@example.com",
+            "user84@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -377,10 +510,37 @@
             "image": "https://picsum.photos/500",
             "email": "laura.white@example.com"
         },
-        "tags": ["AI Tools", "Tech Services", "Data Analysis"],
-        "externalLinks": ["https://aianalytics.com"],
+        "tags": [
+            "AI Tools",
+            "Tech Services",
+            "Data Analysis"
+        ],
+        "externalLinks": [
+            "https://aianalytics.com"
+        ],
         "isFeatured": false,
-        "upvotes": ["user85@example.com", "user86@example.com", "user87@example.com", "user88@example.com", "user89@example.com", "user90@example.com", "user91@example.com", "user92@example.com", "user93@example.com", "user94@example.com", "user95@example.com", "user96@example.com", "user97@example.com", "user98@example.com", "user99@example.com", "user100@example.com", "user101@example.com", "user102@example.com", "user103@example.com", "user104@example.com"],
+        "upvotes": [
+            "user85@example.com",
+            "user86@example.com",
+            "user87@example.com",
+            "user88@example.com",
+            "user89@example.com",
+            "user90@example.com",
+            "user91@example.com",
+            "user92@example.com",
+            "user93@example.com",
+            "user94@example.com",
+            "user95@example.com",
+            "user96@example.com",
+            "user97@example.com",
+            "user98@example.com",
+            "user99@example.com",
+            "user100@example.com",
+            "user101@example.com",
+            "user102@example.com",
+            "user103@example.com",
+            "user104@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -434,10 +594,37 @@
             "image": "https://picsum.photos/500",
             "email": "mark.taylor@example.com"
         },
-        "tags": ["Emerging Technologies", "Web Apps", "Cryptocurrency"],
-        "externalLinks": ["https://blockchainwallet.com"],
+        "tags": [
+            "Emerging Technologies",
+            "Web Apps",
+            "Cryptocurrency"
+        ],
+        "externalLinks": [
+            "https://blockchainwallet.com"
+        ],
         "isFeatured": true,
-        "upvotes": ["user105@example.com", "user106@example.com", "user107@example.com", "user108@example.com", "user109@example.com", "user110@example.com", "user111@example.com", "user112@example.com", "user113@example.com", "user114@example.com", "user115@example.com", "user116@example.com", "user117@example.com", "user118@example.com", "user119@example.com", "user120@example.com", "user121@example.com", "user122@example.com", "user123@example.com", "user124@example.com"],
+        "upvotes": [
+            "user105@example.com",
+            "user106@example.com",
+            "user107@example.com",
+            "user108@example.com",
+            "user109@example.com",
+            "user110@example.com",
+            "user111@example.com",
+            "user112@example.com",
+            "user113@example.com",
+            "user114@example.com",
+            "user115@example.com",
+            "user116@example.com",
+            "user117@example.com",
+            "user118@example.com",
+            "user119@example.com",
+            "user120@example.com",
+            "user121@example.com",
+            "user122@example.com",
+            "user123@example.com",
+            "user124@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -485,10 +672,37 @@
             "image": "https://picsum.photos/500",
             "email": "olivia.harris@example.com"
         },
-        "tags": ["AI Tools", "Software", "Music Creation"],
-        "externalLinks": ["https://aimusiccomposer.com"],
+        "tags": [
+            "AI Tools",
+            "Software",
+            "Music Creation"
+        ],
+        "externalLinks": [
+            "https://aimusiccomposer.com"
+        ],
         "isFeatured": false,
-        "upvotes": ["user125@example.com", "user126@example.com", "user127@example.com", "user128@example.com", "user129@example.com", "user130@example.com", "user131@example.com", "user132@example.com", "user133@example.com", "user134@example.com", "user135@example.com", "user136@example.com", "user137@example.com", "user138@example.com", "user139@example.com", "user140@example.com", "user141@example.com", "user142@example.com", "user143@example.com", "user144@example.com"],
+        "upvotes": [
+            "user125@example.com",
+            "user126@example.com",
+            "user127@example.com",
+            "user128@example.com",
+            "user129@example.com",
+            "user130@example.com",
+            "user131@example.com",
+            "user132@example.com",
+            "user133@example.com",
+            "user134@example.com",
+            "user135@example.com",
+            "user136@example.com",
+            "user137@example.com",
+            "user138@example.com",
+            "user139@example.com",
+            "user140@example.com",
+            "user141@example.com",
+            "user142@example.com",
+            "user143@example.com",
+            "user144@example.com"
+        ],
         "reports": [],
         "reviews": [
             {
@@ -531,6 +745,226 @@
         "status": "approved",
         "postedDate": {
             "date": "2024-01-15T11:20:30.456Z"
+        }
+    },
+    {
+        "name": "Smart Thermostat",
+        "image": "https://picsum.photos/500/600",
+        "description": "A smart thermostat that learns your schedule and adjusts the temperature automatically.",
+        "productOwner": {
+            "name": "Alex Johnson",
+            "image": "https://picsum.photos/500",
+            "email": "alex.johnson@example.com"
+        },
+        "tags": [
+            "Home Automation",
+            "Hardware",
+            "Emerging Technologies"
+        ],
+        "externalLinks": [
+            "https://smartthermostat.com"
+        ],
+        "isFeatured": true,
+        "upvotes": [
+            "user145@example.com",
+            "user146@example.com",
+            "user147@example.com",
+            "user148@example.com",
+            "user149@example.com"
+        ],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Chris",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Saves energy and keeps the house comfortable.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Dana",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Easy to install and use.",
+                "rating": 4
+            }
+        ],
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-03-12T09:15:22.345Z"
+        }
+    },
+    {
+        "name": "Virtual Office Platform",
+        "image": "https://picsum.photos/500/600",
+        "description": "A platform that provides virtual office solutions for remote teams.",
+        "productOwner": {
+            "name": "Emily Clark",
+            "image": "https://picsum.photos/500",
+            "email": "emily.clark@example.com"
+        },
+        "tags": [
+            "Web Apps",
+            "Remote Work",
+            "Tech Services"
+        ],
+        "externalLinks": [
+            "https://virtualofficeplatform.com"
+        ],
+        "isFeatured": false,
+        "upvotes": [
+            "user150@example.com",
+            "user151@example.com",
+            "user152@example.com",
+            "user153@example.com"
+        ],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Evan",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Great for team collaboration.",
+                "rating": 4
+            },
+            {
+                "reviewerName": "Fiona",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The virtual meeting rooms are very intuitive.",
+                "rating": 5
+            }
+        ],
+        "status": "pending",
+        "postedDate": {
+            "date": "2024-02-25T13:45:12.678Z"
+        }
+    },
+    {
+        "name": "AI-Powered Personal Trainer",
+        "image": "https://picsum.photos/500/600",
+        "description": "An AI-driven personal trainer that creates customized workout plans.",
+        "productOwner": {
+            "name": "George Brown",
+            "image": "https://picsum.photos/500",
+            "email": "george.brown@example.com"
+        },
+        "tags": [
+            "AI Tools",
+            "Fitness",
+            "Mobile Apps"
+        ],
+        "externalLinks": [
+            "https://aipersonaltrainer.com"
+        ],
+        "isFeatured": true,
+        "upvotes": [
+            "user154@example.com",
+            "user155@example.com",
+            "user156@example.com",
+            "user157@example.com"
+        ],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Hannah",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The workout plans are tailored to my fitness level.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Ian",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Motivates me to stay consistent with my workouts.",
+                "rating": 4
+            }
+        ],
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-03-08T17:30:45.123Z"
+        }
+    },
+    {
+        "name": "Eco-Friendly Water Bottle",
+        "image": "https://picsum.photos/500/600",
+        "description": "A sustainable and eco-friendly water bottle made from recycled materials.",
+        "productOwner": {
+            "name": "Jessica Lee",
+            "image": "https://picsum.photos/500",
+            "email": "jessica.lee@example.com"
+        },
+        "tags": [
+            "Sustainability",
+            "Lifestyle",
+            "Eco-Friendly Products"
+        ],
+        "externalLinks": [
+            "https://ecofriendlybottle.com"
+        ],
+        "isFeatured": false,
+        "upvotes": [
+            "user158@example.com",
+            "user159@example.com",
+            "user160@example.com"
+        ],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Kevin",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Durable and keeps my water cold for hours.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Lily",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Love the design and the eco-friendly aspect.",
+                "rating": 4
+            }
+        ],
+        "status": "approved",
+        "postedDate": {
+            "date": "2024-01-30T12:10:34.567Z"
+        }
+    },
+    {
+        "name": "AI-Powered Language Tutor",
+        "image": "https://picsum.photos/500/600",
+        "description": "An AI-based language learning app that adapts to your learning style.",
+        "productOwner": {
+            "name": "Michael Green",
+            "image": "https://picsum.photos/500",
+            "email": "michael.green@example.com"
+        },
+        "tags": [
+            "AI Tools",
+            "Learning & Education",
+            "Mobile Apps"
+        ],
+        "externalLinks": [
+            "https://ailanguagetutor.com"
+        ],
+        "isFeatured": true,
+        "upvotes": [
+            "user161@example.com",
+            "user162@example.com",
+            "user163@example.com",
+            "user164@example.com"
+        ],
+        "reports": [],
+        "reviews": [
+            {
+                "reviewerName": "Nina",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "Helps me learn new languages quickly.",
+                "rating": 5
+            },
+            {
+                "reviewerName": "Oscar",
+                "reviewerImage": "https://picsum.photos/500",
+                "reviewDescription": "The AI adapts perfectly to my learning pace.",
+                "rating": 4
+            }
+        ],
+        "status": "pending",
+        "postedDate": {
+            "date": "2024-02-18T10:20:45.789Z"
         }
     }
 ]

@@ -7,21 +7,22 @@ const useGetStatus = () => {
   const { user, loading } = useContext(AuthContext)
   const axiosPublic = useAxiosPublic()
 
-  const { data: status = null } = useQuery({
-    queryKey: ['status', user?.email],
+  const { data: userInfo = { name: "N/A", email: "N/A", photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJmTbHk3RuI0Kgy27sl4Xaie1EMV3haRrYGw&s", createAt: "", isSubscribed: "N/A", status: "N/A" } } = useQuery({
+    queryKey: ['user-info', user?.email],
     enabled: Boolean(user && !loading),
     queryFn: async () => {
       const response = await axiosPublic.get(`/users/${user.email}`)
-      return response.data.status
+      return response.data
     }
   })
 
   useEffect(() => {
-    console.log("User Status:", status)
-  }, [status])
+    if (userInfo?.status)
+      console.log("User Status:", userInfo.status)
+  }, [userInfo?.status])
 
 
-  return ({ status });
+  return ({ status: userInfo?.status, userInfo, loading });
 };
 
 export default useGetStatus;

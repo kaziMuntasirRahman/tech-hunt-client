@@ -12,11 +12,11 @@ const Cart = ({ cart, index }) => {
   const axiosPublic = useAxiosPublic()
   const { _id, name, description, image, reviews, upvotes, tags } = cart;
   const [isUpvoted, setIsUpvoted] = useState(false)
-  const [upvoteCount, setUpvoteCount] = useState(upvotes?.length)
+  const [upvoteCount, setUpvoteCount] = useState(upvotes?.length || 0)
 
   useEffect(() => {
     setIsUpvoted(upvotes.includes(user?.email))
-    setUpvoteCount(upvotes?.length)
+    setUpvoteCount(upvotes?.length || 0)
   }, [user, upvotes])
 
 
@@ -73,8 +73,8 @@ const Cart = ({ cart, index }) => {
           {index + 1}.&nbsp;<span className="hover:text-[#FF6154] transition-all ease-in-out cursor-pointer">{name}</span>
         </Link>
         {
-          description.length > 250 ?
-            <p className="text-[#344054]">{description.slice(0, 250)}... <Link className="text-amber-700 hover:underline"  to={`/products/${_id}`}>View More</Link></p>
+          description.length > 140 ?
+            <p className="text-[#344054]">{description.slice(0, 140)}... <Link className="text-amber-700 hover:underline"  to={`/products/${_id}`}>View More</Link></p>
             :
             <p className="text-[#344054]">{description}</p>
         }
@@ -90,17 +90,17 @@ const Cart = ({ cart, index }) => {
       {/* comment button */}
       <Link to={`/products/${_id}#public-review`} className="ml-auto size-[52px] min-w-[52] shrink-0 rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
         <FaRegComment />
-        <p>{reviews.length}</p>
+        <p>{reviews?.length || 0}</p>
       </Link>
       {/* Upvote button */}
       {
         isUpvoted ?
-          <div onClick={handleUpvotes} className="size-[52px] min-w-[52] shrink-0 rounded-xl text-[#FF6154] border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
+          <div onClick={handleUpvotes} className="size-[52px] min-w-[52] shrink-0 rounded-xl text-[#FF6154] border-2 border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm tooltip" data-tip="upvoted">
             <PiTriangleFill />
             <p>{upvoteCount}</p>
           </div>
           :
-          <div onClick={handleUpvotes} className="size-[52px] min-w-[52] shrink-0 rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
+          <div onClick={handleUpvotes} className="size-[52px] min-w-[52] shrink-0 rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm tooltip" data-tip="upvote now">
             <PiTriangle />
             <p>{upvoteCount}</p>
           </div>

@@ -5,10 +5,10 @@ import ViewerNotice from "../../components/ViewerNotice";
 const ErrorPage = () => {
   return (
     <div className="w-full min-h-screen relative">
-      <div className="max-w-7xl !mx-auto overflow-x-hidden">
+      {/* <div className="max-w-7xl !mx-auto overflow-x-hidden">
         <Navbar />
         <ViewerNotice notify="Hey there! Please, complete your onboarding." button="Complete onboarding" />
-      </div>
+      </div> */}
       <div className="w-full relative h-screen">
         <img src={`/assets/images/404/${Math.ceil(Math.random()*10)}.jpg`} className="w-full object-cover" />
         <div className="bg-white p-8 flex flex-col items-start gap-2 absolute bottom-0 left-10 rounded-lg w-[448px]">

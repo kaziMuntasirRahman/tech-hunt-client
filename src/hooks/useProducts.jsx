@@ -3,7 +3,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useProducts = () => {
   const axiosPublic = useAxiosPublic()
-  const { data: products = [] } = useQuery({
+  const { data: products = [], isLoading, refetch } = useQuery({
     queryKey: ['products'],
     enabled: true,
     queryFn: async () => {
@@ -11,7 +11,7 @@ const useProducts = () => {
       return response.data;
     }
   })
-  return ({ products });
+  return ({ products, isLoading, refetch });
 };
 
 export default useProducts;

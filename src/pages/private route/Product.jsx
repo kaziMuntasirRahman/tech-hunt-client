@@ -1,20 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BsDot, BsTags } from "react-icons/bs";
-import { FaRegComment, FaStar } from "react-icons/fa";
+import { FaRegComment } from "react-icons/fa";
 import { FiDelete, FiExternalLink } from "react-icons/fi";
 import { PiTriangle, PiTriangleFill } from "react-icons/pi";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import DisplayRating from "../../components/DisplayRating";
 import StarRating from "../../components/StarRating";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useGetStatus from "../../hooks/useGetStatus";
-import { AuthContext } from "../../providers/AuthProvider";
-import DisplayRating from "../../components/DisplayRating";
 
 const Product = () => {
-  const { user } = useContext(AuthContext)
-  const { status } = useGetStatus()
+  const { status, userInfo } = useGetStatus()
   // console.log(status)
   const axiosPublic = useAxiosPublic()
   const id = useLoaderData()
@@ -48,19 +46,20 @@ const Product = () => {
 
 
   useEffect(() => {
-    setIsUpvoted(upvotes.includes(user?.email))
+    let reviewLength = reviews.length || 0;
+    setIsUpvoted(upvotes.includes(userInfo.email))
     setUpvoteCount(upvotes?.length)
-    setAverageRating((reviews.reduce((total, review) => total + review.rating, 0)) / reviews.length)
+    setAverageRating((reviews.reduce((total, review) => total + review.rating, 0)) / reviewLength)
     let ratingPercentages = [0, 0, 0, 0, 0]
-    for (let i = 0; i < reviews.length; i++) {
+    for (let i = 0; i < reviewLength; i++) {
       ratingPercentages[reviews[i].rating - 1] += 1
     }
     setRatingCount(ratingPercentages)
     // console.log(ratingCount)
-  }, [user, upvotes, reviews])
+  }, [userInfo?.email, upvotes, reviews])
 
   const handleUpvotes = async () => {
-    if (!user?.email) {
+    if (!userInfo?.email) {
       Swal.fire({
         title: "You're not logged in.",
         text: "Please login to upvote this product.",
@@ -79,7 +78,7 @@ const Product = () => {
     }
     // console.log("Upvote Request received for the product with id:", _id)
     try {
-      const response = await axiosPublic.patch(`products/upvotes?id=${_id}&email=${user.email}`)
+      const response = await axiosPublic.patch(`products/upvotes?id=${_id}&email=${userInfo.email}`)
       if (response.data.upvoted) {
         const audio = new Audio('/assets/sound/upvote.wav')
         audio.play()
@@ -108,8 +107,8 @@ const Product = () => {
     if (rating < 1) {
       return alert("Give a rating to submit...")
     }
-    const newReviewDetails = { reviewerName: user.displayName, reviewerEmail: user.email, reviewerImage: user?.photoURL, reviewDescription: newReview, rating }
-    console.log(newReviewDetails)
+    const newReviewDetails = { reviewerName: userInfo.name, reviewerEmail: userInfo.email, reviewerImage: userInfo?.photoURL, reviewDescription: newReview, rating }
+    // console.log(newReviewDetails)
     try {
       const response = await axiosPublic.patch(`products/reviews/${_id}`, newReviewDetails)
       console.log(response.data)
@@ -253,8 +252,8 @@ const Product = () => {
       {/* average rating */}
       <section className="flex">
         <div className="flex flex-col items-center gap-2 mr-10">
-          <h1 className="text-6xl font-semibold ">{averageRating.toFixed(1)}</h1>
-          <DisplayRating rating={Math.round(averageRating)} />
+          <h1 className="text-6xl font-semibold ">{reviews.length>0?averageRating.toFixed(1):0}</h1>
+          <DisplayRating rating={Math.round(reviews.length>0?averageRating.toFixed(1):0)} />
           <p>{(reviews.length)} Reviews</p>
         </div>
         <div className="w-full flex flex-col gap-2">
@@ -291,7 +290,7 @@ const Product = () => {
           }
         </div>
         {
-          user?.email ?
+          userInfo?.email ?
             <button className="btn self-end">Submit Review</button>
             :
             <div className="tooltip self-end" data-tip="Login to post Review."><button className="btn btn-disabled">Submit Review</button></div>

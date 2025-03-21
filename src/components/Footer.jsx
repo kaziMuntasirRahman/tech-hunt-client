@@ -5,13 +5,13 @@ import Swal from "sweetalert2";
 
 const Footer = () => {
   const axiosPublic = useAxiosPublic()
-  const { user } = useContext(AuthContext)
-  const [mail, setMail] = useState("")
+  const { userInfo } = useContext(AuthContext)
+  const [mail, setMail] = useState(userInfo?.email)
 
   const handleSubscriber = async (e) => {
     e.preventDefault()
     if (!mail) {
-      setMail(user.email)
+      return alert("Please Login to Subscribe..")
     }
     console.log("Received subscriber request for", mail)
     try {
@@ -73,7 +73,7 @@ const Footer = () => {
             <input
               type="text"
               placeholder="username@site.com"
-              defaultValue={user?.email}
+              value={userInfo?.email}
               onChange={(e) => setMail(e.target.value)}
               className="input input-bordered join-item" />
             <button onClick={handleSubscriber} className="btn btn-primary join-item">Subscribe</button>
