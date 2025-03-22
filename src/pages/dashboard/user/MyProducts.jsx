@@ -27,7 +27,7 @@ const MyProducts = () => {
           :
           <></>
       }
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto  w-full rounded-2xl">
         <table className="table table-zebra">
           {/* head */}
           <thead>

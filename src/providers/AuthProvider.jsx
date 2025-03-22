@@ -2,32 +2,44 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
+  const axiosPublic = useAxiosPublic()
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setLoading(true)
-        setUser(currentUser)
-        console.log(currentUser)
-        console.log('User is present as: ', currentUser?.displayName?.toUpperCase())
-        setLoading(false)
-      } else {
-        setLoading(false)
-        setUser(null)
-      }
-    })
+useEffect(() => {
+  setLoading(true);  // Initial loading state
+  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
 
-    return () => {
-      unsubscribe()
+    if (currentUser) {
+      setUser(currentUser);
+      console.log('user is present as:', currentUser?.displayName);
+
+      try {
+        const response = await axiosPublic.post('/jwt', { email: currentUser.email });
+        localStorage.setItem('jwt_token', response.data.token);
+      } catch (error) {
+        console.error('Failed to fetch JWT token:', error);
+      }
+    } else {
+      setUser(null);
+      console.log("user is absent");
+      localStorage.removeItem('jwt_token');
     }
 
-  }, [])
+    setLoading(false);  // Set loading to false once the user state is determined
+  });
+
+  return () => {
+    unsubscribe();  // Clean up the listener
+  };
+
+}, []);
+
 
   const createUser = async (name, email, imgURL, password) => {
     try {
@@ -125,7 +137,7 @@ const AuthProvider = ({ children }) => {
       });
       console.log(error)
     } finally {
-      console.log('...loggedout')
+      console.log('...loggedOut')
     }
   }
 

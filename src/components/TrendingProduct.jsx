@@ -22,7 +22,6 @@ const TrendingProduct = () => {
     }
   }, [products])
 
-
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-lg font-semibold hover:text-[#FF6154] transition-colors duration-300 ease-in-out cursor-pointer mb-4">Top Trending Products</h1>
@@ -31,7 +30,7 @@ const TrendingProduct = () => {
           sortedProducts.slice(0, 5).map((product) => <Cart key={product.name} product={product} />)
         }
       </div>
-      <button className="btn rounded-full w-full">View All</button>
+      <Link to='/products' className="btn rounded-full w-full">View All</Link>
     </div>
   );
 };

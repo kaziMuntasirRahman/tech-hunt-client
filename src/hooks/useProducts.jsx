@@ -7,7 +7,7 @@ const useProducts = () => {
     queryKey: ['products'],
     enabled: true,
     queryFn: async () => {
-      const response = await axiosPublic.get('/products')
+      const response = await axiosPublic.get('products/approved')
       return response.data;
     }
   })

@@ -84,7 +84,7 @@ const Navbar = () => {
             user?.email ?
               <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
                 <div className="avatar">
-                  <div className="mask mask-squircle w-10">
+                  <div className="mask mask-squircle w-10  cursor-pointer">
                     <img src={user?.photoURL} tabIndex={0} role="button" />
                   </div>
                 </div>

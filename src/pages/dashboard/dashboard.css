@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   padding: 50px 0;
-  flex-shrink: 0;
-  min-width: fit-content;
+  min-width: max-content;
 }
 
 .navbar-container>*{
@@ -21,4 +20,17 @@
 .navbar-container>*:hover{
   background-color: #4EB2FC;
 
+}
+
+/* className={({ isActive, isPending }) =>
+isActive
+  ? "active-navlink"
+  : isPending
+  ? "pending"
+  : ""
+} */
+
+.active-navlink{
+  background-color: cyan;
+  color: #343343;
 }

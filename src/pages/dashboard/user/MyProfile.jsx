@@ -37,8 +37,8 @@ const MyProfile = () => {
           {isSubscribed ? "Yes" : "No"}
         </p>
         <p className="text-lg mb-4">
-          <span className="font-semibold">User Status:</span>{" "}
-          {status.toUpperCase()}
+          <span className="font-semibold capitalize">User Status:</span>{" "}
+          {status}
         </p>
         <p className="text-lg">
           <span className="font-semibold">Created At:</span> {formattedDate}

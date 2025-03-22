@@ -1,23 +1,45 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useState } from "react";
 const promote = new Audio('/assets/sound/upvote.wav')
-// const demote = new Audio('/assets/sound/un_upvote.wav')
+const demote = new Audio('/assets/sound/un_upvote.wav')
+
+const userRole = ['Admin', 'moderator', 'general'];
 
 const ManageUser = () => {
   const axiosPublic = useAxiosPublic()
+  const [selectedUser, setSelectedUser] = useState({})
 
   const { data: users = [], isLoading, refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       const response = await axiosPublic.get('/users')
-      return response.data;
+      const sortedUser = response.data.sort((a, b) => userRole.indexOf(a.status) - userRole.indexOf(b.status))
+      return sortedUser;
     }
   })
 
+
+  const demoteToUser = async (id) => {
+    console.log("Demote to User request received for the user:", id)
+    try {
+      const response = await axiosPublic.patch(`users/${id}/status/general`)
+      console.log(response.data)
+      if (response.data.modifiedCount > 0) {
+        console.log("User status updated")
+        refetch()
+        demote.play()
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      console.log("Finally block executed inside promotedToModerator.")
+    }
+  }
   const promoteToModerator = async (id) => {
     console.log("Promote to Moderator request received for the user:", id)
     try {
-      const response = await axiosPublic.patch(`/users/${id}/moderator`)
+      const response = await axiosPublic.patch(`users/${id}/status/moderator`)
       console.log(response.data)
       if (response.data.modifiedCount > 0) {
         console.log("User status updated")
@@ -35,7 +57,7 @@ const ManageUser = () => {
   const promoteToAdmin = async (id) => {
     console.log("Promote to Admin request received for the user:", id)
     try {
-      const response = await axiosPublic.patch(`/users/${id}/admin`)
+      const response = await axiosPublic.patch(`users/${id}/status/admin`)
       console.log(response.data)
       if (response.data.modifiedCount > 0) {
         console.log("User status updated")
@@ -49,6 +71,12 @@ const ManageUser = () => {
     }
   }
 
+  const showUserInfoModal = (user) => {
+    setSelectedUser(user)
+    const userModal = document.getElementById('user_info_modal')
+    userModal.showModal()
+  }
+
   return (
     <div className="relative h-full flex py-10 px-5 bg-white">
 
@@ -59,7 +87,7 @@ const ManageUser = () => {
             <tr className="bg-gray-600 text-white font-semibold">
               <th>#</th>
               <th className="text-center">Name</th>
-              <th className="text-center max-w-10">Email</th>
+              <th className="text-center max-w-10">Make User</th>
               <th className="text-center">Make Moderator</th>
               <th className="text-center">Make Admin</th>
             </tr>
@@ -73,15 +101,20 @@ const ManageUser = () => {
                 <tr key={user._id} className="hover:bg-gray-300/60 transition-all duration-100">
                   <th>{index + 1}</th>
                   <td className="text-center">
-                    <p className="hover:underline cursor-pointer" onClick={() => document.getElementById('user_info_modal').showModal()}>
+                    <p className="hover:underline cursor-pointer" onClick={() => showUserInfoModal(user)}>
                       {user.name}
                     </p>
                   </td>
+
                   <td className="text-center">
-                    <p className="hover:underline cursor-pointer" onClick={() => document.getElementById('user_info_modal').showModal()}>
-                      {user.email}
-                    </p>
+                    {
+                      user.status === 'general' ?
+                        <button className="border border-gray-200 rounded px-2 py-1 tooltip" data-tip="This user is a General User">An User</button>
+                        :
+                        <button onClick={() => demoteToUser(user._id)} className="btn btn-sm btn-primary border-none tooltip" data-tip="Demote To User">Make User</button>
+                    }
                   </td>
+
                   <td className="text-center">
                     {
                       user.status === 'moderator' ?
@@ -98,21 +131,15 @@ const ManageUser = () => {
                         <button onClick={() => promoteToAdmin(user._id)} className="btn btn-sm btn-error border-none tooltip" data-tip="Promote To Admin">Make Admin</button>
                     }
                   </td>
-
                 </tr>
               )
             }
           </tbody>
         </table>
       </div>
+      {/* user Info dialog modal */}
       <dialog id="user_info_modal" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">User info are coming....</p>
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
+        <UserModal user={selectedUser} />
       </dialog>
     </div>
   );
@@ -142,16 +169,66 @@ const SkeletonTable = () => {
 
 const UserModal = ({ user }) => {
   const { name, email, photoURL, status, createdAt, isSubscribed, hasSubscription = false } = user;
-  console.log(name, email, photoURL, status, createdAt, isSubscribed, hasSubscription)
+
+  // Format the createdAt date
+  const date = new Date(createdAt);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = date.toLocaleDateString('en-US', options);
+
   return (
-    <dialog id="user_info_modal" className="modal">
-      <div className="modal-box">
-        <h3 className="font-bold text-lg">Hello!</h3>
-        <p className="py-4">Press ESC key or click outside to close</p>
+    <>
+      <div className="modal-box overflow-hidden bg-white rounded-lg shadow-2xl p-8 max-w-md mx-auto">
+        {/* Close Button */}
+        <form method="dialog" className="absolute top-4 right-4">
+          <button className="btn btn-sm btn-circle btn-ghost text-gray-500 hover:text-gray-700">
+            ✕
+          </button>
+        </form>
+
+        {/* User Profile Picture */}
+        <div className="flex justify-center mb-6">
+          <img
+            src={photoURL}
+            alt={name}
+            className="w-32 h-32 rounded-full object-cover border-4 border-blue-100 shadow-md"
+          />
+        </div>
+
+        {/* User Name */}
+        <h3 className="text-2xl font-bold text-center text-gray-800 mb-2">{name}</h3>
+
+        {/* User Details */}
+        <div className="space-y-4 text-gray-600">
+          <p className="text-lg">
+            <span className="font-semibold">Email:</span> {email}
+          </p>
+          <p className="text-lg">
+            <span className="font-semibold">Status:</span>{" "}
+            <span className="capitalize">{status}</span>
+          </p>
+          <p className="text-lg">
+            <span className="font-semibold">Joined:</span> {formattedDate}
+          </p>
+          <p className="text-lg">
+            <span className="font-semibold">Newsletter:</span>{" "}
+            {isSubscribed ? "Subscribed" : "Not Subscribed"}
+          </p>
+          <p className="text-lg">
+            <span className="font-semibold">Subscription:</span>{" "}
+            {hasSubscription ? "Active" : "Inactive"}
+          </p>
+        </div>
+
+        {/* Close Instruction */}
+        <p className="text-sm text-gray-400 text-center mt-6">
+          Press ESC or click outside to close
+        </p>
       </div>
-      <form method="dialog" className="modal-backdrop">
+
+      {/* Modal Backdrop */}
+      <form method="dialog" className="modal-backdrop bg-black/50">
         <button>close</button>
       </form>
-    </dialog>
-  )
-}
+    </>
+  );
+};

@@ -24,7 +24,7 @@ const DashboardContainer = () => {
     navigate('/')
   }
   return (
-    <div className="max-w-6xl !mx-auto border-l border-r border-red-500 min-h-screen grid grid-cols-4">
+    <div className="max-w-6xl !mx-auto border-l border-r border-red-500 min-h-screen grid grid-cols-4 overflow-x-hidden">
       {/* TODO: Uncomment this later */}
       {
         (loading || statusLoading) ?
@@ -35,7 +35,7 @@ const DashboardContainer = () => {
             :
             status === 'moderator' ? <ModeratorNavbar logout={logOut} />
               :
-              status === 'admin' ? <AdminNavbar Logout={logOut} />
+              status === 'admin' ? <AdminNavbar logout={logOut} />
                 :
                 <div className="navbar-container" />
       }
@@ -51,22 +51,42 @@ export default DashboardContainer;
 const UserNavbar = ({ logout }) => {
   return (
     <nav className="navbar-container font-semibold bg-amber-200">
-      <NavLink to=''>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      }
+        end
+        to=''>
         <CgProfile /><p>My Profile</p>
       </NavLink>
-      <NavLink to='update-profile'>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      } to='update-profile'>
         <RiUserSettingsLine /><p>Update Profile</p>
       </NavLink>
-      <NavLink to='my-products'>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      } to='my-products'>
         <MdProductionQuantityLimits /><p>My Products</p>
       </NavLink>
       <NavLink to='add-product'>
         <IoIosAddCircleOutline /><p>Add Product</p>
       </NavLink>
       <hr className="!p-0" />
-      <NavLink onClick={logout} className="">
+      <button onClick={logout} className="cursor-pointer">
         <IoLogOutOutline /><p>Logout</p>
-      </NavLink>
+      </button>
       <NavLink to='/'><IoMdHome /><p>Home</p></NavLink>
     </nav>
   )
@@ -75,19 +95,39 @@ const UserNavbar = ({ logout }) => {
 const ModeratorNavbar = ({ logout }) => {
   return (
     <nav className="navbar-container font-semibold bg-amber-200">
-      <NavLink to=''>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      }
+        end
+        to=''>
         <CgProfile /><p>My Profile</p>
       </NavLink>
-      <NavLink to='product-review'>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      } to='product-review'>
         <MdOutlineRateReview /><p>Product Review</p>
       </NavLink>
-      <NavLink to='manage-reports'>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      } to='manage-reports'>
         <GoReport /><p>Reported Contents</p>
       </NavLink>
       <hr className="!p-0" />
-      <NavLink onClick={logout} className="">
+      <button onClick={logout} className="cursor-pointer">
         <IoLogOutOutline /><p>Logout</p>
-      </NavLink>
+      </button>
       <NavLink to='/'>
         <IoMdHome /><p>Home</p>
       </NavLink>
@@ -98,22 +138,42 @@ const ModeratorNavbar = ({ logout }) => {
 const AdminNavbar = ({ logout }) => {
   return (
     <nav className="navbar-container font-semibold bg-amber-200">
-      <NavLink to=''>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      }
+        end
+        to=''>
         <CgProfile /><p>My Profile</p>
       </NavLink>
-      <NavLink to='/statistics'>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      } to='statistics'>
         <IoStatsChart /><p>Statistics</p>
       </NavLink>
-      <NavLink to='manage-user'>
+      <NavLink className={({ isActive, isPending }) =>
+        isActive
+          ? "active-navlink"
+          : isPending
+            ? "pending"
+            : ""
+      } to='manage-user'>
         <FaUsersLine /><p>Manage Users</p>
       </NavLink>
-      <NavLink to='/manage-coupons'>
+      <NavLink to='manage-coupons'>
         <BiSolidCoupon /><p>Manage Coupons</p>
       </NavLink>
       <hr className="!p-0" />
-      <NavLink onClick={logout} className="">
+      <button onClick={logout} className="cursor-pointer">
         <IoLogOutOutline /><p>Logout</p>
-      </NavLink>
+      </button>
       <NavLink to='/'><IoMdHome /><p>Home</p>
       </NavLink>
     </nav>

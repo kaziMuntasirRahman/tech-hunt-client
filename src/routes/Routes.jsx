@@ -12,6 +12,8 @@ import MyProducts from "../pages/dashboard/user/MyProducts";
 import UpdateProfile from "../pages/dashboard/user/UpdateProfile";
 import ProductReview from "../pages/dashboard/moderator/ProductReview";
 import ManageUser from "../pages/dashboard/admin/ManageUser";
+import Statistics from "../pages/dashboard/admin/Statistics";
+import ManageCoupon from "../pages/dashboard/admin/ManageCoupon";
 
 const router = createBrowserRouter([
   {
@@ -67,7 +69,15 @@ const router = createBrowserRouter([
       // admin only dashboard
       {
         path: 'manage-user',
-        element: <ManageUser/>
+        element: <ManageUser />
+      },
+      {
+        path: 'statistics',
+        element: <Statistics />
+      },
+      {
+        path: 'manage-coupons',
+        element: <ManageCoupon />
       }
     ]
   }
