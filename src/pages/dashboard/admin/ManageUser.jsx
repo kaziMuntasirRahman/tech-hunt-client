@@ -1,19 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const promote = new Audio('/assets/sound/upvote.wav')
 const demote = new Audio('/assets/sound/un_upvote.wav')
 
 const userRole = ['Admin', 'moderator', 'general'];
 
 const ManageUser = () => {
-  const axiosPublic = useAxiosPublic()
+  // const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const [selectedUser, setSelectedUser] = useState({})
 
   const { data: users = [], isLoading, refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const response = await axiosPublic.get('/users')
+      const response = await axiosSecure.get('/users')
       const sortedUser = response.data.sort((a, b) => userRole.indexOf(a.status) - userRole.indexOf(b.status))
       return sortedUser;
     }
@@ -21,10 +23,10 @@ const ManageUser = () => {
 
 
   const demoteToUser = async (id) => {
-    console.log("Demote to User request received for the user:", id)
+    // console.log("Demote to User request received for the user:", id)
     try {
-      const response = await axiosPublic.patch(`users/${id}/status/general`)
-      console.log(response.data)
+      const response = await axiosSecure.patch(`users/${id}/status/general`)
+      // console.log(response.data)
       if (response.data.modifiedCount > 0) {
         console.log("User status updated")
         refetch()
@@ -33,14 +35,14 @@ const ManageUser = () => {
     } catch (error) {
       console.log(error)
     } finally {
-      console.log("Finally block executed inside promotedToModerator.")
+      // console.log("Finally block executed inside promotedToModerator.")
     }
   }
   const promoteToModerator = async (id) => {
-    console.log("Promote to Moderator request received for the user:", id)
+    // console.log("Promote to Moderator request received for the user:", id)
     try {
-      const response = await axiosPublic.patch(`users/${id}/status/moderator`)
-      console.log(response.data)
+      const response = await axiosSecure.patch(`users/${id}/status/moderator`)
+      // console.log(response.data)
       if (response.data.modifiedCount > 0) {
         console.log("User status updated")
         refetch()
@@ -49,7 +51,7 @@ const ManageUser = () => {
     } catch (error) {
       console.log(error)
     } finally {
-      console.log("Finally block executed inside promotedToModerator.")
+      // console.log("Finally block executed inside promotedToModerator.")
     }
   }
 
@@ -57,8 +59,8 @@ const ManageUser = () => {
   const promoteToAdmin = async (id) => {
     console.log("Promote to Admin request received for the user:", id)
     try {
-      const response = await axiosPublic.patch(`users/${id}/status/admin`)
-      console.log(response.data)
+      const response = await axiosSecure.patch(`users/${id}/status/admin`)
+      // console.log(response.data)
       if (response.data.modifiedCount > 0) {
         console.log("User status updated")
         refetch()
@@ -67,7 +69,7 @@ const ManageUser = () => {
     } catch (error) {
       console.log(error)
     } finally {
-      console.log("Finally block executed inside promotedToAdmin.")
+      // console.log("Finally block executed inside promotedToAdmin.")
     }
   }
 

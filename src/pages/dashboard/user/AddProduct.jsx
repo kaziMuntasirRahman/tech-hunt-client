@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useGetStatus from "../../../hooks/useGetStatus";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import axios from "axios";
 
 const uniqueTags = [
   "AI Tools",
@@ -29,7 +31,8 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VI
 
 const AddProduct = () => {
   const { userInfo } = useGetStatus()
-  const axiosPublic = useAxiosPublic()
+  // const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const [loading, setLoading] = useState(false)
   const [newProduct, setNewProduct] = useState({
     name: "",
@@ -66,7 +69,7 @@ const AddProduct = () => {
       const imgFile = { image: image }
       setLoading(true)
       console.log(newProduct)
-      const imgResponse = await axiosPublic.post(img_hosting_url, imgFile, {
+      const imgResponse = await axios.post(img_hosting_url, imgFile, {
         headers: {
           'content-type': 'multipart/form-data'
         }
@@ -84,7 +87,7 @@ const AddProduct = () => {
       const updatedProduct = [{ name, image: imgURL, description, externalLinks, tags, productOwner }]
       console.log(updatedProduct[0])
 
-      const dbResponse = await axiosPublic.post('/products', updatedProduct)
+      const dbResponse = await axiosSecure.post('/products', updatedProduct)
 
       console.log(dbResponse.data)
       if (dbResponse.data.insertedCount > 0) {
@@ -163,7 +166,7 @@ const AddProduct = () => {
           <label className="fieldset-label">Pick a file</label>
           <input
             type="file"
-            className="file-input w-full"
+            className="file-input w-full focus:outline-none"
             onChange={(e) => setNewProduct({ ...newProduct, image: e.target.files[0] })}
             required
           />
@@ -175,7 +178,7 @@ const AddProduct = () => {
                 <input
                   type="checkbox"
                   onChange={() => handleTagChange(tag)}
-                  className="checkbox"
+                  className="checkbox focus:outline-none focus:border-2 focus:border-black"
                   checked={newProduct.tags.includes(tag)}
                 />
                 {tag}

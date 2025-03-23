@@ -1,14 +1,16 @@
 import { useContext, useState } from "react";
 import useGetStatus from "../../../hooks/useGetStatus";
-import axios from "axios";
+// import axios from "axios";
 import { AuthContext } from "../../../providers/AuthProvider";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const img_hosting_url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`
 
 const UpdateProfile = () => {
   const { user, updateUserInfo } = useContext(AuthContext)
-  const axiosPublic = useAxiosPublic()
+  // const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const { userInfo } = useGetStatus()
   const [updatedUser, setUpdatedUser] = useState({ name: "", photo: null })
   const [updateLoading, setUpdateLoading] = useState(false)
@@ -22,7 +24,7 @@ const UpdateProfile = () => {
       let imgURL = user?.photoURL || "";
       if (updatedUser.photo) {
         imgFile = { image: updatedUser.photo }
-        const response = await axios.post(img_hosting_url, imgFile, {
+        const response = await axiosSecure.post(img_hosting_url, imgFile, {
           headers: {
             'content-type': 'multipart/form-data'
           }
@@ -37,9 +39,11 @@ const UpdateProfile = () => {
       const res = await updateUserInfo(updatedUser.name, imgURL)
       const updatedUserInfo = { name: updatedUser.name || user.displayName, photoURL: imgURL };
       if (res) {
-        const dbResponse = await axiosPublic.patch(`users/profile/${user.email}`, updatedUserInfo)
+        const dbResponse = await axiosSecure.patch(`users/profile/${user.email}`, updatedUserInfo)
         console.log(dbResponse)
         if (dbResponse.data.modifiedCount > 0) {
+          const audio = new Audio('/assets/sound/success-1.mp3')
+          audio.play()
           Swal.fire({
             position: "center",
             icon: "success",

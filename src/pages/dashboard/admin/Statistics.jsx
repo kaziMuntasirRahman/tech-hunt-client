@@ -1,7 +1,8 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const COLORS = ['#0088FE', '#00C49F', 'crimson'];
 
@@ -28,12 +29,13 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 }
 
 const Statistics = () => {
-  const axiosPublic = useAxiosPublic();
+  // const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure()
 
   const { data: products = [], isLoading: productLoading = true } = useQuery({
     query: ['all-products'],
     queryFn: async () => {
-      const response = await axiosPublic.get('/products')
+      const response = await axiosSecure.get('/products')
       return response.data;
     }
   })
@@ -41,7 +43,7 @@ const Statistics = () => {
   const { data: users = [], isLoading: loading = true } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const response = await axiosPublic.get('/users');
+      const response = await axiosSecure.get('/users');
       return response.data;
     }
   });

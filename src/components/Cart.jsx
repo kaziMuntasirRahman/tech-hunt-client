@@ -1,15 +1,15 @@
 import { BsDot, BsTags } from "react-icons/bs";
 import { FaRegComment } from "react-icons/fa";
 import { PiTriangle, PiTriangleFill } from "react-icons/pi";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Cart = ({ cart, index }) => {
   const { user } = useContext(AuthContext)
-  const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const { _id, name, description, image, reviews, upvotes, tags } = cart;
   const [isUpvoted, setIsUpvoted] = useState(false)
   const [upvoteCount, setUpvoteCount] = useState(upvotes?.length || 0)
@@ -40,7 +40,7 @@ const Cart = ({ cart, index }) => {
     }
     // console.log("Upvote Request received for the product with id:", _id)
     try {
-      const response = await axiosPublic.patch(`products/upvotes?id=${_id}&email=${user.email}`)
+      const response = await axiosSecure.patch(`products/upvotes?id=${_id}&email=${user.email}`)
       if (response.data.upvoted) {
         const audio = new Audio('/assets/sound/upvote.wav')
         audio.play()

@@ -1,18 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FcDeleteColumn } from "react-icons/fc";
 import { GrUpdate } from "react-icons/gr";
 import { MdDeleteSweep } from "react-icons/md";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MyProducts = () => {
-  const axiosPublic = useAxiosPublic()
+  // const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const { user } = useContext(AuthContext)
   const { data: myProducts = [], loading } = useQuery({
     queryKey: ['my-products'],
     queryFn: async () => {
-      const response = await axiosPublic.get(`products/users/${user.email}`)
+      const response = await axiosSecure.get(`products/users/${user.email}`)
       return response.data
     }
   })

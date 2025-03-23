@@ -8,13 +8,15 @@ import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import DisplayRating from "../../components/DisplayRating";
 import StarRating from "../../components/StarRating";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useGetStatus from "../../hooks/useGetStatus";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+const promoteAudio = new Audio('/assets/sound/upvote.wav')
+const demoteAudio = new Audio('/assets/sound/un_upvote.wav')
 
 const Product = () => {
   const { status, userInfo } = useGetStatus()
   // console.log(status)
-  const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const id = useLoaderData()
   const [rating, setRating] = useState(0)
   // console.log(id)
@@ -32,23 +34,23 @@ const Product = () => {
     queryKey: ['product', id],
     enabled: true,
     queryFn: async () => {
-      const response = await axiosPublic.get(`products/${id}`)
+      const response = await axiosSecure.get(`products/${id}`)
       return response.data;
     }
   })
 
   const { _id, name, image, description, productOwner = {}, tags = [], externalLinks = [], isFeatured, upvotes = [], reviews = [] } = product;
 
-  const [isUpvoted, setIsUpvoted] = useState(false)
-  const [upvoteCount, setUpvoteCount] = useState(upvotes?.length)
+  // const [isUpvoted, setIsUpvoted] = useState(false)
+  // const [upvoteCount, setUpvoteCount] = useState(upvotes?.length)
   const [averageRating, setAverageRating] = useState(0)
   const [ratingCount, setRatingCount] = useState([0, 0, 0, 0, 0]);
 
 
   useEffect(() => {
     let reviewLength = reviews.length || 0;
-    setIsUpvoted(upvotes.includes(userInfo.email))
-    setUpvoteCount(upvotes?.length)
+    // setIsUpvoted(upvotes.includes(userInfo.email))
+    // setUpvoteCount(upvotes?.length)
     setAverageRating((reviews.reduce((total, review) => total + review.rating, 0)) / reviewLength)
     let ratingPercentages = [0, 0, 0, 0, 0]
     for (let i = 0; i < reviewLength; i++) {
@@ -56,7 +58,7 @@ const Product = () => {
     }
     setRatingCount(ratingPercentages)
     // console.log(ratingCount)
-  }, [userInfo?.email, upvotes, reviews])
+  }, [userInfo?.email, reviews])
 
   const handleUpvotes = async () => {
     if (!userInfo?.email) {
@@ -78,20 +80,14 @@ const Product = () => {
     }
     // console.log("Upvote Request received for the product with id:", _id)
     try {
-      const response = await axiosPublic.patch(`products/upvotes?id=${_id}&email=${userInfo.email}`)
+      const response = await axiosSecure.patch(`products/upvotes?id=${_id}&email=${userInfo.email}`)
       if (response.data.upvoted) {
-        const audio = new Audio('/assets/sound/upvote.wav')
-        audio.play()
-        console.log(response.data.message)
-        setIsUpvoted(!isUpvoted)
-        setUpvoteCount(upvoteCount + 1)
+        promoteAudio.play()
+        // console.log(response.data.message)
         refetch();
       } else if (!response.data.upvoted) {
-        const audio = new Audio('/assets/sound/un_upvote.wav')
-        audio.play()
-        console.log(response.data.message)
-        setIsUpvoted(!isUpvoted)
-        setUpvoteCount(upvoteCount - 1)
+        demoteAudio.play()
+        // console.log(response.data.message)
         refetch();
       }
     } catch (err) {
@@ -110,7 +106,7 @@ const Product = () => {
     const newReviewDetails = { reviewerName: userInfo.name, reviewerEmail: userInfo.email, reviewerImage: userInfo?.photoURL, reviewDescription: newReview, rating }
     // console.log(newReviewDetails)
     try {
-      const response = await axiosPublic.patch(`products/reviews/${_id}`, newReviewDetails)
+      const response = await axiosSecure.patch(`products/reviews/${_id}`, newReviewDetails)
       console.log(response.data)
       if (response.data.modifiedCount > 0) {
         const audio = new Audio('/assets/sound/success-1.mp3')
@@ -166,7 +162,7 @@ const Product = () => {
     try {
       const url = `products/reviews/${id}?index=${index}`
       console.log(url)
-      const response = await axiosPublic.delete(url)
+      const response = await axiosSecure.delete(url)
       console.log(response.data)
       if (response.data.modifiedCount > 0) {
         Swal.fire({
@@ -231,15 +227,15 @@ const Product = () => {
         </a>
         {/* Upvote button */}
         {
-          isUpvoted ?
+          (upvotes.includes(userInfo.email)) ?
             <div onClick={handleUpvotes} className="h-[52px] px-10 rounded-xl text-[#FF6154] border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
               <PiTriangleFill />
-              <p>{upvoteCount}</p>
+              <p>{upvotes.length}</p>
             </div>
             :
             <div onClick={handleUpvotes} className="h-[52px] px-10 rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer flex flex-col items-center justify-center text-sm">
               <PiTriangle />
-              <p>{upvoteCount}</p>
+              <p>{upvotes.length}</p>
             </div>
         }
       </section>
