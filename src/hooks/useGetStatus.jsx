@@ -9,7 +9,7 @@ const useGetStatus = () => {
   // const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
 
-  const { data: userInfo = { name: "N/A", email: "N/A", photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJmTbHk3RuI0Kgy27sl4Xaie1EMV3haRrYGw&s", createAt: "", isSubscribed: "N/A", status: "N/A" } } = useQuery({
+  const { data: userInfo = { name: "N/A", email: "N/A", photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJmTbHk3RuI0Kgy27sl4Xaie1EMV3haRrYGw&s", createAt: "", isSubscribed: "N/A", status: "N/A" }, isLoading } = useQuery({
     queryKey: ['user-info', user?.email],
     enabled: Boolean(user && !loading),
     queryFn: async () => {
@@ -24,7 +24,7 @@ const useGetStatus = () => {
   }, [userInfo?.status])
 
 
-  return ({ status: userInfo?.status, userInfo, loading });
+  return ({ status: userInfo?.status, userInfo, isLoading });
 };
 
 export default useGetStatus;

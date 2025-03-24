@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
   const { loading, user } = useContext(AuthContext)
   if (loading) {
     return (
-      <div className="relative h-full flex items-center justify-center p-8">
+      <div className="relative h-screen w-screen flex items-center justify-center p-8">
         <div className="absolute left-0 top-0 !z-999 bg-slate-700/30 h-full w-full flex items-center justify-center">
           <span className="loader scale-200" ></span>
         </div>
@@ -18,7 +18,7 @@ const PrivateRoute = ({ children }) => {
     return children;
   }
 
-  return (<Navigate state={location.pathname} to='/signin' replace />)
+  return (<Navigate state={location.pathname} to='/' replace />)
 
 
 };

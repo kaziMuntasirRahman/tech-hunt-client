@@ -162,7 +162,6 @@ const SkeletonTable = () => {
             <td className=""><p className="skeleton h-5" /></td>
             <td className=""><p className="skeleton h-5" /></td>
             <td className=""><p className="skeleton h-5" /></td>
-            <td className=""><p className="skeleton h-5" /></td>
           </tr>)
       }
     </tbody>

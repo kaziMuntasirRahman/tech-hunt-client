@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useGetStatus from "../../../hooks/useGetStatus";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import axios from "axios";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const uniqueTags = [
   "AI Tools",
@@ -31,7 +30,7 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VI
 
 const AddProduct = () => {
   const { userInfo } = useGetStatus()
-  // const axiosPublic = useAxiosPublic()
+  const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
   const [loading, setLoading] = useState(false)
   const [newProduct, setNewProduct] = useState({
@@ -69,7 +68,7 @@ const AddProduct = () => {
       const imgFile = { image: image }
       setLoading(true)
       console.log(newProduct)
-      const imgResponse = await axios.post(img_hosting_url, imgFile, {
+      const imgResponse = await axiosPublic.post(img_hosting_url, imgFile, {
         headers: {
           'content-type': 'multipart/form-data'
         }
@@ -185,10 +184,10 @@ const AddProduct = () => {
               </label>
             ))}
           </div>
-
           <button className="btn btn-neutral mt-4">Add Product</button>
         </fieldset>
       </form>
+
     </div>
   );
 };

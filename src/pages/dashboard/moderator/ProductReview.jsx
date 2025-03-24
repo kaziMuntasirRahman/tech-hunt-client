@@ -30,12 +30,12 @@ const ProductReview = () => {
   }, [originalProducts])
 
   const switchFeaturedProduct = async (id) => {
-    console.log("switch featured product function is called for the id no: ", id)
+    // console.log("switch featured product function is called for the id no: ", id)
     try {
       const response = await axiosSecure.patch(`products/${id}/featured`)
-      console.log(response.data)
+      // console.log(response.data)
       if (response.data.result.modifiedCount > 0) {
-        console.log("data modified")
+        console.log("product featured status modified")
         refetch()
         if (response.data.newFeaturedStatus === true) {
           promote.play()
@@ -46,17 +46,17 @@ const ProductReview = () => {
     } catch (err) {
       console.log(err)
     } finally {
-      console.log("Finally Block inside switchFeatureProduct has been executed.")
+      // console.log("Finally Block inside switchFeatureProduct has been executed.")
     }
   }
 
   const handleProductStatus = async (id, bool) => {
-    console.log("Handle Product Status function is called for the id no:", id, "to", bool)
+    // console.log("Handle Product Status function is called for the id no:", id, "to", bool)
     try {
       const response = await axiosSecure.patch(`products/${id}/status`, { status: bool })
-      console.log(response.data)
+      // console.log(response.data)
       if (response.data.modifiedCount > 0) {
-        console.log("data modified")
+        console.log("product status modified")
         refetch()
         if (bool) {
           promote.play()
@@ -68,7 +68,7 @@ const ProductReview = () => {
     } catch (err) {
       console.log(err)
     } finally {
-      console.log("Finally Block inside handleProductStatus has been executed.")
+      // console.log("Finally Block inside handleProductStatus has been executed.")
     }
   }
 

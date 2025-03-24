@@ -11,34 +11,37 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
-useEffect(() => {
-  setLoading(true);  // Initial loading state
-  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+  useEffect(() => {
+    setLoading(true);  // Initial loading state
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
 
-    if (currentUser) {
-      setUser(currentUser);
-      console.log('user is present as:', currentUser?.displayName);
+      if (currentUser) {
+        setUser(currentUser);
+        console.log('user is present as:', currentUser?.displayName);
 
-      try {
-        const response = await axiosPublic.post('/jwt', { email: currentUser.email });
-        localStorage.setItem('jwt_token', response.data.token);
-      } catch (error) {
-        console.error('Failed to fetch JWT token:', error);
+        try {
+          const response = await axiosPublic.post('/jwt', { email: currentUser.email });
+          if (response.data.token) {
+            localStorage.setItem('jwt_token', response.data.token);
+            setLoading(false);  // Set loading to false once the user state is determined
+          }
+        } catch (error) {
+          console.error('Failed to fetch JWT token:', error);
+        }
+      } else {
+        setUser(null);
+        console.log("user is absent");
+        localStorage.removeItem('jwt_token');
       }
-    } else {
-      setUser(null);
-      console.log("user is absent");
-      localStorage.removeItem('jwt_token');
-    }
 
-    setLoading(false);  // Set loading to false once the user state is determined
-  });
+      setLoading(false);  // Set loading to false once the user state is determined
+    });
 
-  return () => {
-    unsubscribe();  // Clean up the listener
-  };
+    return () => {
+     unsubscribe();  // Clean up the listener
+    };
 
-}, []);
+  }, [axiosPublic]);
 
 
   const createUser = async (name, email, imgURL, password) => {

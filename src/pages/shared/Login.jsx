@@ -65,11 +65,9 @@ const Login = ({ setRegisterModal, closeModal }) => {
     } finally {
       setLoginLoading(false)
       closeModal()
-      console.log("Finally block executed in the register component.")
+      // console.log("Finally block executed in the register component.")
     }
   }
-
-
 
   return (
     <div className="card bg-base-100 shrink-0 py-6">

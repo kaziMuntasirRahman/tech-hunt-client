@@ -14,6 +14,12 @@ import ProductReview from "../pages/dashboard/moderator/ProductReview";
 import ManageUser from "../pages/dashboard/admin/ManageUser";
 import Statistics from "../pages/dashboard/admin/Statistics";
 import ManageCoupon from "../pages/dashboard/admin/ManageCoupon";
+import ModeratorRoute from "./ModeratorRoute";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
+import ManageReports from "../pages/dashboard/moderator/ManageReports";
+import Payment from "../pages/dashboard/user/Payment";
+import ManagePayment from "../pages/dashboard/admin/ManagePayment";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +48,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <DashboardContainer />,
+    element: <PrivateRoute><DashboardContainer /></PrivateRoute>,
     children: [
       // users dashboard layout
       {
@@ -61,23 +67,35 @@ const router = createBrowserRouter([
         path: 'my-products',
         element: <MyProducts />
       },
+      {
+        path: 'payment',
+        element: <Payment />
+      },
       // moderator only dashboard
       {
         path: 'product-review',
-        element: <ProductReview />
+        element: <ModeratorRoute><ProductReview /></ModeratorRoute>
+      },
+      {
+        path: 'manage-reports',
+        element: <ModeratorRoute><ManageReports /></ModeratorRoute>
       },
       // admin only dashboard
       {
-        path: 'manage-user',
-        element: <ManageUser />
+        path: 'statistics',
+        element: <AdminRoute><Statistics /></AdminRoute>
       },
       {
-        path: 'statistics',
-        element: <Statistics />
+        path: 'manage-user',
+        element: <AdminRoute><ManageUser /></AdminRoute>
+      },
+      {
+        path: 'manage-payments',
+        element: <AdminRoute><ManagePayment /></AdminRoute>
       },
       {
         path: 'manage-coupons',
-        element: <ManageCoupon />
+        element: <AdminRoute><ManageCoupon /></AdminRoute>
       }
     ]
   }

@@ -2,7 +2,7 @@ import useGetStatus from "../../../hooks/useGetStatus";
 
 const MyProfile = () => {
   const { loading, userInfo } = useGetStatus();
-  const { name = "", email, photoURL, createdAt, isSubscribed, status } = userInfo;
+  const { name = "", email, photoURL, createdAt, isSubscribed, status, hasPaidSubscription = false } = userInfo;
   const date = new Date(createdAt);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = date.toLocaleDateString('en-US', options);
@@ -22,7 +22,7 @@ const MyProfile = () => {
           alt="Profile"
           className="rounded-full size-80 object-cover border-4 border-white shadow-lg"
         />
-        <h1 className="absolute bottom-0 w-full text-center pb-4 text-white text-4xl font-bold bg-gray-600/70 rounded-b-full">
+        <h1 className="absolute -bottom-5 w-full text-center pb-4 text-white text-4xl font-bold bg-gray-600/90 rounded-b-full">
           {name}
         </h1>
       </div>
@@ -32,16 +32,20 @@ const MyProfile = () => {
         <p className="text-lg mb-4">
           <span className="font-semibold">Email:</span> {email}
         </p>
-        <p className="text-lg mb-4">
-          <span className="font-semibold">Newsletter Subscriber:</span>{" "}
-          {isSubscribed ? "Yes" : "No"}
+        <p className="text-lg mb-4 font-semibold">
+          <span className="capitalize">Has Paid Subscription: </span>
+          {hasPaidSubscription === 'pending' ? "Pending" : hasPaidSubscription ? "Yes" : "No"}
         </p>
-        <p className="text-lg mb-4">
-          <span className="font-semibold capitalize">User Status:</span>{" "}
+        <p className="text-lg mb-4 capitalize">
+          <span className="font-semibold">User Status: </span>
           {status}
         </p>
-        <p className="text-lg">
+        <p className="text-lg mb-4">
           <span className="font-semibold">Created At:</span> {formattedDate}
+        </p>
+        <p className="text-lg">
+          <span className="font-semibold">Newsletter Subscriber: </span>
+          {isSubscribed ? "Yes" : "No"}
         </p>
       </div>
     </div>
