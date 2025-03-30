@@ -15,10 +15,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);  // Initial loading state
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
 
-      if (currentUser) {
+      if (currentUser?.email) {
         setUser(currentUser);
         console.log('user is present as:', currentUser?.displayName);
-
         try {
           const response = await axiosPublic.post('/jwt', { email: currentUser.email });
           if (response.data.token) {

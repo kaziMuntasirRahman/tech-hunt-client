@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const promote = new Audio('/assets/sound/upvote.wav')
@@ -8,7 +7,6 @@ const demote = new Audio('/assets/sound/un_upvote.wav')
 const userRole = ['Admin', 'moderator', 'general'];
 
 const ManageUser = () => {
-  // const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
   const [selectedUser, setSelectedUser] = useState({})
 
