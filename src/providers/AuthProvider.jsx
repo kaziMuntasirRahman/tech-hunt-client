@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);  // Initial loading state
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
 
-      if (currentUser?.email) {
+      if (currentUser) {
         setUser(currentUser);
         console.log('user is present as:', currentUser?.displayName);
         try {

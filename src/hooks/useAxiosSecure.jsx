@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000/',
-  // baseURL: 'https://tech-hunt-server-blond.vercel.app/',
+  // baseURL: 'http://localhost:5000/',
+  baseURL: 'https://tech-hunt-server-blond.vercel.app/',
 })
 
 const useAxiosSecure = () => {
@@ -12,9 +12,15 @@ const useAxiosSecure = () => {
 
   axiosSecure.interceptors.request.use(config => {
     const token = localStorage.getItem('jwt_token')
-    config.headers.Authorization = `bearer ${token}`
+    if(token){
+      config.headers.Authorization = `bearer ${token}`
+    } else{
+      console.warn("Token not found, request might fail.")
+    }
     // console.log("config",config)
     return config;
+  }, (error)=>{
+    return Promise.reject(error)
   })
 
   //*****/ This response interceptor runs after each response is received from the server.
