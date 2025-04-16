@@ -194,23 +194,30 @@ const Product = () => {
 
   return (
     <div className="w-full p-10 flex flex-col gap-5 bg-amber-100/0">
-      <div className="relative">
-        <img src={image} className="w-full h-72 object-cover rounded-lg" />
-        {
-          isFeatured ?
-            <h2 className="absolute right-0 top-5 bg-red-800 text-2xl text-white px-4 py-1 rounded-l-2xl">Featured</h2>
-            :
-            <></>
-        }
-      </div>
-      <div className="text-3xl font-semibold flex items-center gap-4">
-        <h1>{name}</h1>
-        <Link to={externalLinks[0]}>
-          <FiExternalLink />
-        </Link>
-      </div>
-      {/* <p>{postedDate}</p> */}
-      <p>{description}</p>
+
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+
+        <div className="relative row-span-2">
+          <img src={image} className="w-full h-full object-cover rounded-lg" />
+          {
+            isFeatured ?
+              <h2 className="absolute right-0 top-5 bg-red-800 text-2xl text-white px-4 py-1 rounded-l-2xl">Featured</h2>
+              :
+              <></>
+          }
+        </div>
+        <div className="text-3xl font-semibold flex items-center gap-4">
+          <h1>{name}</h1>
+          <Link to={externalLinks[0]}>
+            <FiExternalLink />
+          </Link>
+        </div>
+        {/* <p>{postedDate}</p> */}
+        <p>{description}</p>
+      </section>
+
+
+
       <section className="flex items-center justify-between">
         <div id="tags" className="flex items-center gap-1">
           <BsTags className="mr-3" />
@@ -241,15 +248,15 @@ const Product = () => {
       </section>
       {/* product owner info */}
       <section className="flex items-center gap-4">
-        <img src={productOwner.image} className="size-[52px] rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer" />
+        <img src={productOwner.image} className="size-14 object-cover rounded-xl border-2 border-gray-200 hover:border-[#FF6154] transition-all duration-300 cursor-pointer" />
         <h1 className="text-xl font-medium text-gray-600">{productOwner.name}</h1>
         <hr />
       </section>
       {/* average rating */}
       <section className="flex">
         <div className="flex flex-col items-center gap-2 mr-10">
-          <h1 className="text-6xl font-semibold ">{reviews.length>0?averageRating.toFixed(1):0}</h1>
-          <DisplayRating rating={Math.round(reviews.length>0?averageRating.toFixed(1):0)} />
+          <h1 className="text-6xl font-semibold ">{reviews.length > 0 ? averageRating.toFixed(1) : 0}</h1>
+          <DisplayRating rating={Math.round(reviews.length > 0 ? averageRating.toFixed(1) : 0)} />
           <p>{(reviews.length)} Reviews</p>
         </div>
         <div className="w-full flex flex-col gap-2">

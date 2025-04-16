@@ -20,9 +20,18 @@ const ManagePayment = () => {
   })
 
 
-  const managePayments = async ()=>{
-    console.log('....manage payments....')
-    refetch()
+  const managePayments = async (state, id, email) => {
+    console.log('....manage payments....', state)
+    try {
+      const response = await axiosSecure.patch('/payments', { status: state, _id: id , email})
+      if (response?.data?.result?.modifiedCount > 0) {
+        console.log(response.data);
+        alert("Modified..")
+        refetch()
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 
@@ -64,14 +73,23 @@ const ManagePayment = () => {
                       {payment.email}
                     </p>
                   </td>
-                  <td className="text-center">${((payment.amount)/100).toFixed(2)}</td>
+                  <td className="text-center">${((payment.amount) / 100).toFixed(2)}</td>
                   <td className="text-center">{payment.payment_id}</td>
                   <td className="text-center">{new Date(payment.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                   <td className="text-center">{payment.status}</td>
-                  <td className="text-center"><span className="flex items-center justify-center text-xl text-green-600 cursor-pointer tooltip" data-tip="Accept Payment"><SiTicktick /></span></td>
-                  <td className="text-center"><span className="flex items-center justify-center text-xl text-red-500 cursor-pointer tooltip" data-tip="Reject Payment"><RxCross2 /></span></td>
+                  {
+                    payment?.status === 'pending' &&
+                    <td className="text-center">
+                      <span onClick={() => managePayments('accepted', payment._id, payment.email)} className="flex items-center justify-center text-xl text-green-600 cursor-pointer tooltip" data-tip="Accept Payment"><SiTicktick /></span>
+                    </td>
+                  }
+                  {
+                    payment?.status === 'pending' &&
+                    <td className="text-center">
+                      <span onClick={() => managePayments('rejected', payment._id, payment.email)} className="flex items-center justify-center text-xl text-red-500 cursor-pointer tooltip" data-tip="Reject Payment"><RxCross2 /></span>
+                    </td>
+                  }
 
-                 
                 </tr>
               )
             }
@@ -102,7 +120,7 @@ const SkeletonTable = () => {
             <td className=""><p className="skeleton h-5" /></td>
             <td className=""><p className="skeleton h-5" /></td>
           </tr>
-          )
+        )
       }
     </tbody>
   )

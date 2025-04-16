@@ -20,6 +20,7 @@ import PrivateRoute from "./PrivateRoute";
 import ManageReports from "../pages/dashboard/moderator/ManageReports";
 import Payment from "../pages/dashboard/user/Payment";
 import ManagePayment from "../pages/dashboard/admin/ManagePayment";
+import Contact from "../pages/shared/Contact";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />
+      },
+      {
+        path: '/contact',
+        element: <Contact />
       },
       {
         path: '/products/:id',

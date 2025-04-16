@@ -1,6 +1,7 @@
 import FeaturedProducts from "../../components/FeaturedProducts";
 import Slider from "../../components/Slider";
 import TrendingProduct from "../../components/TrendingProduct";
+import Reviews from "./Reviews";
 
 const Home = () => {
   return (
@@ -12,6 +13,9 @@ const Home = () => {
         </section>
         <section className="bg-green-400/0 mx-auto ">
           <TrendingProduct />
+        </section>
+        <section className="col-span-full">
+          <Reviews />
         </section>
       </div>
     </div>

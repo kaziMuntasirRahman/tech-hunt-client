@@ -7,6 +7,30 @@ import Register from "../pages/shared/Register";
 import { AuthContext } from "../providers/AuthProvider";
 import { GoBell } from "react-icons/go";
 
+const navLinks = [
+  {
+    title: "Home",
+    link: "/",
+    icon: "home"
+  },
+  {
+    title: "Products",
+    link: "/products",
+    icon: "box"
+  },
+  {
+    title: "About",
+    link: "/about",
+    icon: "info-circle"
+  },
+  {
+    title: "Contact",
+    link: "/contact",
+    icon: "phone"
+  }
+];
+
+
 const Navbar = () => {
   const { user, loading, logOut } = useContext(AuthContext)
   const [registerModal, setRegisterModal] = useState(true)
@@ -44,7 +68,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="grid grid-cols-3 py-5 border border-slate-50">
+    <nav className="grid grid-cols-3 pt-4 pb-5 border border-slate-50 sticky top-0 bg-white z-50">
       {/* navbar left */}
       <div className="flex items-center gap-6">
         {/* logo */}
@@ -62,9 +86,18 @@ const Navbar = () => {
       </div>
       {/* navbar center */}
       <div className="flex justify-center items-center gap-5">
-        <NavLink to='/' className="link link-hover">Home</NavLink>
-        <NavLink to='/products' className="link link-hover">Products</NavLink>
-        <NavLink to='/about' className="link link-hover">About</NavLink>
+
+        {
+          navLinks.map(({ title, link }) =>
+            <NavLink to={link} className={({ isActive, isPending }) =>
+              isActive
+                ? "link link-hover font-bold text-[#FF6154]"
+                : isPending
+                  ? "pending"
+                  : "link link-hover"
+            }>{title}</NavLink>
+          )
+        }
       </div>
       {/* navbar right */}
       <div className="ml-auto flex gap-8">

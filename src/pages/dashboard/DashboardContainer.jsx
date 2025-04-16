@@ -27,7 +27,7 @@ const DashboardContainer = () => {
 
   if (statusLoading)
     return (
-      <div className="max-w-6xl mx-auto min-h-screen grid grid-cols-4 overflow-x-hidden">
+      <div className="max-w-6xl mx-auto h-screen grid grid-cols-4 overflow-x-hidden">
         <NavbarSkeleton />
         <div className="col-span-3 bg-blue-200">
           <div className="absolute inset-0 bg-slate-700/30 flex items-center justify-center z-50">
@@ -38,7 +38,7 @@ const DashboardContainer = () => {
     )
 
   return (
-    <div className="max-w-6xl mx-auto min-h-screen grid grid-cols-4 overflow-x-hidden">
+    <div className="max-w-6xl mx-auto h-screen grid grid-cols-4 overflow-x-hidden">
       {/* display navbar based on the role of the user */}
       {
         status === 'general' ?
@@ -47,7 +47,7 @@ const DashboardContainer = () => {
             status === 'admin' ? <AdminNavbar logout={logOut} /> :
               <NavbarSkeleton />
       }
-      <div className="col-span-3 bg-blue-200">
+      <div className="col-span-3 bg-blue-200 overflow-y-auto">
         <Outlet />
       </div>
     </div>
@@ -58,7 +58,7 @@ export default DashboardContainer;
 
 const UserNavbar = ({ logout, hasPaidSubscription }) => {
   return (
-    <nav className="navbar-container font-semibold bg-amber-200">
+    <nav className="navbar-container font-semibold bg-amber-200 ">
       <NavLink className={({ isActive, isPending }) =>
         isActive
           ? "active-navlink"

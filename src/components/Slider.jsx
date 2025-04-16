@@ -8,8 +8,8 @@ const Slider = () => {
                 {
                     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) =>
                         <div key={item}>
-                            <img src={`/assets/images/banner slider/${item}.png`} />
-                            <p className="legend">Legend {item}</p>
+                            <img src={`/assets/images/banner slider/${item}.png`}  />
+                            {/* <p className="legend">Legend {item}</p> */}
                         </div>
                     )
                 }
