@@ -16,7 +16,7 @@ const Reviews = () => {
     queryKey: ['reviews'],
     queryFn: async () => {
       const response = await axiosPublic.get('/reviews')
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     }
   })
