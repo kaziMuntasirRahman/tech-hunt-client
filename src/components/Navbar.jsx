@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { CiLogin, CiSearch } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -34,12 +34,32 @@ const navLinks = [
 const Navbar = () => {
   const { user, loading, logOut } = useContext(AuthContext)
   const [registerModal, setRegisterModal] = useState(true)
+  const searchRef = useRef(null);
 
   const closeModal = () => {
     const modal = document.getElementById('auth_modal')
     modal.close()
     setRegisterModal(false)
   }
+
+  const handleKeyDown = e =>{
+    if(e.ctrlKey && e.key === 'k'){
+      e.preventDefault() // prevent browser's default search
+      searchRef.current?.focus()
+    }else if(e.key==='Escape'){
+      searchRef.current?.blur()
+    }
+  }
+
+  useEffect(()=>{
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return ()=>{
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
+
 
   const handleLogout = async () => {
     try {
@@ -77,11 +97,12 @@ const Navbar = () => {
         </Link>
         {/* search bar */}
         <label className="rounded-full relative flex items-center gap-2 bg-gray-200">
-          <CiSearch className="absolute left-5 text-gray-500" />
+          <CiSearch className="absolute left-4 text-gray-500" />
           <input
+            ref={searchRef}
             type="search"
             placeholder="Search ( ctrl + k )"
-            className="!pl-10 pr-5 py-2 rounded-full focus:outline-gray-600" />
+            className="!pl-10 pr-4 py-2 rounded-full w-[190px] focus:w-[250px]  focus:outline-gray-600 duration-300 ease-in-out" />
         </label>
       </div>
       {/* navbar center */}
